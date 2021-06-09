@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const ctrlHealthZones = require('../controllers/locations');
+
+const ctrlHealthZones = require('../controllers/health-zones');
+const ctrlDeaths = require('../controllers/deaths');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -8,7 +10,10 @@ router.get('/', function(req, res, next) {
 });
 
 /* Health zone pages */
-router.get('/health-zones', {title: "Por definir el controlador de health zones"});
+router.get('/health-zones', ctrlHealthZones.healthZonesReadAll);
+
+/** Deaths pages */
+router.get('/deaths', ctrlDeaths.deathsReadAll);
 
 
 module.exports = router;
