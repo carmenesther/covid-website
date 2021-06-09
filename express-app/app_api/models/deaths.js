@@ -5,7 +5,7 @@ const deathSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    mes_de_defuncion: {
+    mes_defuncion: {
         type: String,
         required: true
     },
