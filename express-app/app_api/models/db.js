@@ -37,4 +37,5 @@ process.on('SIGINT', () => {
 });
 
 // BRING IN YOUR SCHEMAS & MODELS
+require('./deaths');
 require('./health-zones');
