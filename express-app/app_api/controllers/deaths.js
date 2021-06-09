@@ -39,7 +39,7 @@ const deathsReadOne = (req, res) => {
 /* GET api/deaths/sex/:sex */
 const deathsReadBySex = (req, res) => {
     d
-    .find(req.params.sex) //
+    .find({ 'sexo': req.params.sex }) //
     .exec((err, deaths) => {
         if (!deaths) {
             sendJSONresponse(res, 404, {"message" : "deaths not found"});
