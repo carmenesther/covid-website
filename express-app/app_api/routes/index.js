@@ -13,10 +13,5 @@ router.get('/', function(req, res, next) {
 router.get('/health-zones', ctrlHealthZones.healthZonesReadAll);
 router.get('/health-zones/:id', ctrlHealthZones.healthZoneReadOne);
 
-/** Deaths pages */
-router.get('/deaths', ctrlDeaths.deathsReadAll);
-router.get('/deaths/:id', ctrlDeaths.deathsReadOne);
-router.get('/deaths/sex/:sex', ctrlDeaths.deathsReadBySex);
-
 
 module.exports = router;
