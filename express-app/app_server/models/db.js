@@ -37,4 +37,3 @@ process.on('SIGINT', () => {
 });
 
 // BRING IN YOUR SCHEMAS & MODELS
-require('./health-zones');
