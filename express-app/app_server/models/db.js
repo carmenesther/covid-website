@@ -35,3 +35,6 @@ process.on('SIGINT', () => {
         process.exit(0);
     });
 });
+
+// BRING IN YOUR SCHEMAS & MODELS
+require('./health-zones');
