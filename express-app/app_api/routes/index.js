@@ -11,6 +11,7 @@ router.get('/', function(req, res, next) {
 
 /* Health zone pages */
 router.get('/health-zones', ctrlHealthZones.healthZonesReadAll);
+router.get('/health-zones/:id', ctrlHealthZones.healthZoneReadOne);
 
 /** Deaths pages */
 router.get('/deaths', ctrlDeaths.deathsReadAll);

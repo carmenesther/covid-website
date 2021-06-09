@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const healthZones = mongoose.model('health_zones');
+const hz = mongoose.model('health_zones');
 
 const sendJSONresponse = (res, status, content) => {
     res.status(status);
@@ -8,7 +8,7 @@ const sendJSONresponse = (res, status, content) => {
 
 /* GET api/health-zones */
 const healthZonesReadAll = (req, res) => {
-    Loc
+    hz
       .find({})
       .exec((err, healthZones) => {
           if (!healthZones) {
@@ -20,6 +20,22 @@ const healthZonesReadAll = (req, res) => {
     });     
 };
 
+/* GET api/health-zones/:id */
+const healthZoneReadOne = (req, res) => {
+    hz.
+    findById(req.params.id)
+    .exec((err, healthZone) => {
+        if(!healthZone){
+            sendJSONresponse(res, 404, {"message": "health zone not found"});
+        } else if(err) {
+            sendJSONresponse(res, 404, err);
+        } else {
+            sendJSONresponse(res, 200, healthZone);
+        }
+    });
+};
+
 module.exports = {
-    healthZonesReadAll
+    healthZonesReadAll,
+    healthZoneReadOne
 }
