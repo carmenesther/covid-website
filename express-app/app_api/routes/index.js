@@ -16,7 +16,8 @@ router.get('/health-zones/:id', ctrlHealthZones.healthZoneReadOne);
 /** Deaths pages */
 router.get('/deaths', ctrlDeaths.deathsReadAll);
 router.get('/deaths/:id', ctrlDeaths.deathsReadOne);
-router.get('/deaths/sex/:sex', ctrlDeaths.deathsReadBySex);
+router.get('/sex/:sex', ctrlDeaths.deathsReadBySex);
+router.get('/countsex', ctrlDeaths.deathsCountSex);
 
 
 module.exports = router;
