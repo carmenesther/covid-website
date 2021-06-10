@@ -71,7 +71,11 @@ const deathsCountSex = (req, res) => {
                         } else if (err) {
                             sendJSONresponse(res, 404, err);
                         } else {
-                            sendJSONresponse(res, 200, countHombres + " " + countMujeres);
+                            var schema = new mongoose.Schema({
+                                Hombres: { type: String, countHombres },
+                                Mujeres: { type: String, countMujeres }
+                            });
+                            sendJSONresponse(res, 200, schema.obj);
                         }
                     });
             }

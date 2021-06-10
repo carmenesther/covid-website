@@ -5,7 +5,7 @@ const ctrlHealthZones = require('../controllers/health-zones');
 const ctrlDeaths = require('../controllers/deaths');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
@@ -18,6 +18,5 @@ router.get('/deaths', ctrlDeaths.deathsReadAll);
 router.get('/deaths/:id', ctrlDeaths.deathsReadOne);
 router.get('/sex/:sex', ctrlDeaths.deathsReadBySex);
 router.get('/countsex', ctrlDeaths.deathsCountSex);
-
 
 module.exports = router;
