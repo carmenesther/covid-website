@@ -1,5 +1,5 @@
 <app-menu></app-menu>
-<div class="container" fxLayout="column" fxLayoutAlign="center center">
+<div class="container">
     <mat-spinner *ngIf="deaths.length == 0"></mat-spinner>
     <div class="deaths-container-table">
         <mat-card class="mat-elevation-z8">
@@ -67,7 +67,7 @@
                     <!-- Fecha del informe -->
                     <ng-container matColumnDef="fecha_informe">
                         <mat-header-cell *matHeaderCellDef mat-sort-header>Fecha del informe</mat-header-cell>
-                        <mat-cell *matCellDef="let element"> {{element.fecha_informe}}</mat-cell>
+                        <mat-cell *matCellDef="let element"> {{element.fecha_informe | date:'dd/MM/yyyy'}}</mat-cell>
                     </ng-container>
                     <!-- Casos confirmados totales -->
                     <ng-container matColumnDef="casos_confirmados_totales">
