@@ -5,6 +5,34 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors')
 
+const swaggerUi = require('swagger-ui-express');
+const bodyParser = require("body-parser");
+const swaggerJsdoc = require("swagger-jsdoc");
+
+/* SWAGGER */
+
+const options = {
+  definition: {
+    openapi: "3.0.0",
+    info: {
+      title: "Covid Express API with Swagger",
+      version: "0.1.0",
+      description:
+        "This is a simple CRUD API application that is gonna be use for a front end made with Express and documented with Swagger by Manu Caro and Carmen Fernández",
+      license: {
+        name: "MIT",
+        url: "https://spdx.org/licenses/MIT.html",
+      }
+    },
+    servers: [
+      {
+        url: "http://localhost:3000/api",
+      },
+    ],
+  },
+  apis: ["./app_api/routes/index.js"],
+};
+
 require('./app_api/models/db');
 
 var indexRouter = require('./app_server/routes/index');
@@ -25,6 +53,13 @@ app.use(cors())
 
 app.use('/', indexRouter);
 app.use('/api', apiRouter);
+
+const specs = swaggerJsdoc(options);
+app.use(
+  "/api/api-docs",
+  swaggerUi.serve,
+  swaggerUi.setup(specs)
+);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
