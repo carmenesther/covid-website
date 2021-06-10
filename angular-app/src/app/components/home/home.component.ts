@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { DeathModel } from 'src/app/models/death.model';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { HealthZoneModel } from 'src/app/models/health-zone.model';
 
 @Component({
   selector: 'app-home',
@@ -12,10 +13,13 @@ import { MatSort } from '@angular/material/sort';
 })
 export class HomeComponent implements OnInit {
 
-  dataSource = new MatTableDataSource<DeathModel>();
+  deathDataSource = new MatTableDataSource<DeathModel>();
+  healthZoneDataSource = new MatTableDataSource<HealthZoneModel>();
   deaths: any = [];
+  healthZones: any = [];
 
-  displayedColumns: string[] = ['sexo', 'edad', 'mes', 'total'];
+  deathsDisplayedColumns: string[] = ['sexo', 'edad', 'mes', 'total'];
+  healthZonesDisplayedColumns: string[] = ['zona_basica_salud', 'fecha_informe', 'casos_confirmados_totales', 'tasa_incidencia_acumulada_total'];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -24,14 +28,24 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllDeaths();
+    this.getAllHealthZones();
   }
 
   getAllDeaths() {
     this.db.getAllDeaths().subscribe(data => {
       this.deaths = data;
-      this.dataSource = new MatTableDataSource<DeathModel>(this.deaths);
-      this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;
+      this.deathDataSource = new MatTableDataSource<DeathModel>(this.deaths);
+      this.deathDataSource.sort = this.sort;
+      this.deathDataSource.paginator = this.paginator;
+    });
+  }
+
+  getAllHealthZones() {
+    this.db.getAllHealthZones().subscribe(data => {
+      this.healthZones = data;
+      this.healthZoneDataSource = new MatTableDataSource<HealthZoneModel>(this.healthZones);
+      this.healthZoneDataSource.sort = this.sort;
+      this.healthZoneDataSource.paginator = this.paginator;
     });
   }
 /*

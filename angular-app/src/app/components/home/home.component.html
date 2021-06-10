@@ -14,7 +14,7 @@
                     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. " #input>
                   </mat-form-field>
                 -->
-                <mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+                <mat-table [dataSource]="deathDataSource" class="mat-elevation-z8" matSort>
                     <!-- Género -->
                     <ng-container matColumnDef="sexo">
                         <mat-header-cell *matHeaderCellDef mat-sort-header>Género</mat-header-cell>
@@ -36,8 +36,52 @@
                         <mat-cell *matCellDef="let element"> {{element.total}}</mat-cell>
                     </ng-container>
     
-                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                    <mat-row *matRowDef="let row; columns: displayedColumns; "></mat-row>
+                    <mat-header-row *matHeaderRowDef="deathsDisplayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: deathsDisplayedColumns; "></mat-row>
+                </mat-table>
+                <mat-paginator [pageSizeOptions]="[8, 16, 24, 100]"></mat-paginator>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+
+    <div class="health-zones-container-table">
+        <mat-card class="mat-elevation-z8">
+            <mat-card-header>
+                <mat-card-title>Zonas básicas de salud</mat-card-title>
+            </mat-card-header>
+            <mat-divider></mat-divider>
+            <mat-card-content>
+                <!--
+                <mat-form-field appearance="outline">
+                    <mat-label>Filtrar</mat-label>
+                    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. " #input>
+                  </mat-form-field>
+                -->
+                <mat-table [dataSource]="healthZoneDataSource" class="mat-elevation-z8" matSort>
+                    <!-- Zona básica de salud -->
+                    <ng-container matColumnDef="zona_basica_salud">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Zona básica de salud</mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.zona_basica_salud}}</mat-cell>
+                    </ng-container>
+                    <!-- Fecha del informe -->
+                    <ng-container matColumnDef="fecha_informe">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Fecha del informe</mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.fecha_informe}}</mat-cell>
+                    </ng-container>
+                    <!-- Casos confirmados totales -->
+                    <ng-container matColumnDef="casos_confirmados_totales">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Casos confirmados totales</mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.casos_confirmados_totales}}</mat-cell>
+                    </ng-container>
+                    <!-- Tasa de incidencia acumulada total -->
+                    <ng-container matColumnDef="tasa_incidencia_acumulada_total">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Tasa de incidencia acumulada total</mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.tasa_incidencia_acumulada_total}}</mat-cell>
+                    </ng-container>
+    
+                    <mat-header-row *matHeaderRowDef="healthZonesDisplayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: healthZonesDisplayedColumns; "></mat-row>
                 </mat-table>
                 <mat-paginator [pageSizeOptions]="[8, 16, 24, 100]"></mat-paginator>
             </mat-card-content>
