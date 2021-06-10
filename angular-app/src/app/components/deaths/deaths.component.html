@@ -1,1 +1,20 @@
 <app-menu></app-menu>
+<div class="container">
+    <div fxLayout="row">
+        <div fxLayout="column" class="cards" fxFlex="60">
+            <mat-card *ngFor="let item of deaths" style="margin-top:10px;">
+                <mat-card-header>
+                    <mat-card-title>{{item.covid19}}</mat-card-title>
+                    <mat-card-subtitle>{{item.edad}}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div fxLayout="column" fxFlex="40">
+            <div>Mujer</div>
+            <div>Hombre</div>
+        </div>
+    </div>
+</div>
