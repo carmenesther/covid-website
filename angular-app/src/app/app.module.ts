@@ -11,6 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './shared/components/menu/menu.component';
 import { HealthZonesComponent } from './components/health-zones/health-zones.component';
 import { DeathsComponent } from './components/deaths/deaths.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { DeathsComponent } from './components/deaths/deaths.component';
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
-    MaterialModule
+    MaterialModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
