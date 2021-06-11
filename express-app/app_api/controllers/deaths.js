@@ -53,7 +53,7 @@ const deathsReadByGenre = (req, res) => {
 };
 
 /* GET api/deaths-countgenre*/
-const deathsCountGenre= (req, res) => {
+const deathsCountGenre = (req, res) => {
     d
         .countDocuments({ 'sexo': 'Hombres' })
         .exec((err, countHombres) => {
