@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class HealthZonesComponent implements OnInit {
 
   healthZones: any = [];
+  panelOpenState = false;
 
   constructor(private db: DbService) { }
 
@@ -22,5 +23,7 @@ export class HealthZonesComponent implements OnInit {
       console.log(this.healthZones);
     });
   }
+
+
 
 }
