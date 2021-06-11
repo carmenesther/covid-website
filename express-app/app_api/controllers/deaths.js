@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const d = mongoose.model('Death');
+const d = mongoose.model('death');
 
 const sendJSONresponse = (res, status, content) => {
     res.status(status);
@@ -36,8 +36,8 @@ const deathsReadOne = (req, res) => {
         });
 };
 
-/* GET api/deaths/sex/:sex */
-const deathsReadBySex = (req, res) => {
+/* GET api/deaths-genre/:genre */
+const deathsReadByGenre = (req, res) => {
     d
         .find({ 'sexo': req.params.sex })
         .exec((err, deaths) => {
@@ -52,8 +52,8 @@ const deathsReadBySex = (req, res) => {
         });
 };
 
-/* GET api/countsex */
-const deathsCountSex = (req, res) => {
+/* GET api/deaths-countgenre*/
+const deathsCountGenre= (req, res) => {
     d
         .countDocuments({ 'sexo': 'Hombres' })
         .exec((err, countHombres) => {
@@ -85,6 +85,6 @@ const deathsCountSex = (req, res) => {
 module.exports = {
     deathsReadAll,
     deathsReadOne,
-    deathsReadBySex,
-    deathsCountSex
+    deathsReadByGenre,
+    deathsCountGenre
 };

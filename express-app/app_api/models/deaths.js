@@ -23,4 +23,4 @@ const deathSchema = new mongoose.Schema({
     }
 });
 
-mongoose.model('Death', deathSchema);
+mongoose.model('death', deathSchema);

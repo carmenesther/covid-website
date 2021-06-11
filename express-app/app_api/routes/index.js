@@ -3,6 +3,7 @@ const router = express.Router();
 
 const ctrlHealthZones = require('../controllers/health-zones');
 const ctrlDeaths = require('../controllers/deaths');
+const ctrlVaccination = require('../controllers/vaccination');
 
 
 /* GET home page. */
@@ -39,6 +40,33 @@ router.get('/', function (req, res, next) {
  *           type: integer
  *           description: total covid cases in the health zone.
  *           example: 100
+ *     deaths:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: integer
+ *           description: death's ID.
+ *           example: 0
+ *         covid19:
+ *           type: string
+ *           description: covid-19 identificated or not.
+ *           example: Covid-19 Virus identificado
+ *         mes_defuncion:
+ *           type: string
+ *           description: month of the defunction.
+ *           example: Enero
+ *         sexo:
+ *           type: string
+ *           description: genre of the person.
+ *           example: Mujeres
+ *         edad:
+ *           type: string
+ *           description: age range of the person.
+ *           example: De 80 a 84 años
+ *         total:
+ *           type: integer
+ *           description: total of deaths.
+ *           example: 1.666
  */
 
 /**
@@ -58,7 +86,6 @@ router.get('/', function (req, res, next) {
  *               type: array
  *               items:
  *                 $ref: '#/components/schemas/health-zones'
-
 */
 router.get('/health-zones', ctrlHealthZones.healthZonesReadAll);
 
@@ -78,7 +105,7 @@ router.get('/health-zones', ctrlHealthZones.healthZonesReadAll);
  *         description: Numeric ID of the health zone to retrieve.
  *         schema:
  *           type: integer
-  *     responses:
+ *     responses:
  *       200:
  *         description: One health zone.
  *         content:
@@ -94,34 +121,87 @@ router.get('/health-zones/:id', ctrlHealthZones.healthZoneReadOne);
  * @swagger
  * /deaths:
  *   get:
- *     summary: Retrieve a list covid's deaths
+ *     summary: Retrieve a list of covid's deaths
  *     description: Retrieve a list of covid's deaths 
  *     tags:
  *       - deaths
- * 
- */
+ *     responses:
+ *       200:
+ *         description: A list of deaths.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/deaths'
+*/
 router.get('/deaths', ctrlDeaths.deathsReadAll);
 
 /**
  * @swagger
  * /deaths/{id}:
  *   get:
- *     summary: Retrieve a covid's death
- *     description: Retrieve a covid's death
+ *     summary: Retrieve a death
+ *     description: Retrieve a death with the information
  *     tags:
  *       - deaths
-  *     parameters:
+ *     parameters:
  *       - in: path
  *         name: id
  *         required: true
  *         description: Numeric ID of the death to retrieve.
  *         schema:
  *           type: integer
- * 
- */
-
+ *     responses:
+ *       200:
+ *         description: One death.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/deaths'
+*/
 router.get('/deaths/:id', ctrlDeaths.deathsReadOne);
-router.get('/sex/:sex', ctrlDeaths.deathsReadBySex);
-router.get('/countsex', ctrlDeaths.deathsCountSex);
+
+/**
+ * @swagger
+ * /deaths-genre/{genre}:
+ *   get:
+ *     summary: Retrieve a list of covid's deaths by genre
+ *     description: Retrieve a list of covid's deaths by genre
+ *     tags:
+ *       - deaths
+ *     parameters:
+ *       - in: path
+ *         name: genre
+ *         required: true
+ *         description: Genre of the person.
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: A list of deaths by a given genre.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/deaths'
+ */
+router.get('/deaths-genre/:genre', ctrlDeaths.deathsReadByGenre);
+
+/**
+ * @swagger
+ * /deaths-countgenre:
+ *   get:
+ *     summary: Retrieve two numbers of total deaths by genre
+ *     description: Retrieve two numbers of total deaths by genre "Hombres" and genre "Mujeres"
+ *     tags:
+ *       - deaths
+ */
+router.get('/deaths-countgenre', ctrlDeaths.deathsCountGenre);
+
+router.post('/vaccination', ctrlVaccination.vaccinationCreate);
 
 module.exports = router;
