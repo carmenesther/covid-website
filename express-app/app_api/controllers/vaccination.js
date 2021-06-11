@@ -32,7 +32,7 @@ const vaccinationCreate = (req, res) => {
         fecha: req.body.fecha
     }, (err, vaccination) => {
         if (err) {
-            sendJSONresponse(res, 404, err);
+            sendJSONresponse(res, 500, { "message": "can not create" });
         } else {
             sendJSONresponse(res, 201, vaccination);
         }

@@ -110,14 +110,19 @@ router.get('/', function (req, res, next) {
  *           type: string
  *           description: date.
  *           example: mayo 2021
+ *     resource-not-found:
+ *       type: object
+ *       properties:
+ *         message:
+ *           type: string
  */
 
 /**
  * @swagger
- * /deaths:
+ * /api/deaths:
  *   get:
- *     summary: Retrieve a list of covid's deaths
- *     description: Retrieve a list of covid's deaths 
+ *     summary: Retrieves a list of covid's deaths
+ *     description: Retrieves a list of covid's deaths 
  *     tags:
  *       - deaths
  *     responses:
@@ -129,15 +134,23 @@ router.get('/', function (req, res, next) {
  *               type: array
  *               items:
  *                 $ref: '#/components/schemas/deaths'
+ *       404:
+ *         description: Message of error.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/resource-not-found'
 */
 router.get('/deaths', ctrlDeaths.deathsReadAll);
 
 /**
  * @swagger
- * /deaths/{id}:
+ * /api/deaths/{id}:
  *   get:
- *     summary: Retrieve a death
- *     description: Retrieve a death with the information
+ *     summary: Retrieves a death
+ *     description: Retrieves a death with the information
  *     tags:
  *       - deaths
  *     parameters:
@@ -156,15 +169,23 @@ router.get('/deaths', ctrlDeaths.deathsReadAll);
  *               type: array
  *               items:
  *                 $ref: '#/components/schemas/deaths'
+ *       404:
+ *         description: Message of error.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/resource-not-found'
 */
 router.get('/deaths/:id', ctrlDeaths.deathsReadOne);
 
 /**
  * @swagger
- * /deaths-genre/{genre}:
+ * /api/deaths-genre/{genre}:
  *   get:
- *     summary: Retrieve a list of covid's deaths by genre
- *     description: Retrieve a list of covid's deaths by genre
+ *     summary: Retrieves a list of covid's deaths by genre
+ *     description: Retrieves a list of covid's deaths by genre
  *     tags:
  *       - deaths
  *     parameters:
@@ -183,15 +204,23 @@ router.get('/deaths/:id', ctrlDeaths.deathsReadOne);
  *               type: array
  *               items:
  *                 $ref: '#/components/schemas/deaths'
- */
+  *       404:
+ *         description: Message of error.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/resource-not-found'
+*/
 router.get('/deaths-genre/:genre', ctrlDeaths.deathsReadByGenre);
 
 /**
  * @swagger
- * /deaths-count-genre:
+ * /api/deaths-count-genre:
  *   get:
- *     summary: Retrieve two numbers of total deaths by genre
- *     description: Retrieve two numbers of total deaths by genre "Hombres" and genre "Mujeres"
+ *     summary: Retrieves two numbers of total deaths by genre
+ *     description: Retrieves two numbers of total deaths by genre "Hombres" and genre "Mujeres"
  *     tags:
  *       - deaths
  *     responses:
@@ -203,15 +232,23 @@ router.get('/deaths-genre/:genre', ctrlDeaths.deathsReadByGenre);
  *               type: array
  *               items:
  *                 $ref: '#/components/schemas/count-genre'
- */
+  *       404:
+ *         description: Message of error.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/resource-not-found'
+*/
 router.get('/deaths-count-genre', ctrlDeaths.deathsCountGenre);
 
 /**
  * @swagger
- * /health-zones:
+ * /api/health-zones:
  *   get:
- *     summary: Retrieve a list of health zones
- *     description: Retrieve a list of covid confirmed cases from the health zones. 
+ *     summary: Retrieves a list of health zones
+ *     description: Retrieves a list of covid confirmed cases from the health zones. 
  *     tags:
  *       - health-zones
  *     responses:
@@ -223,16 +260,24 @@ router.get('/deaths-count-genre', ctrlDeaths.deathsCountGenre);
  *               type: array
  *               items:
  *                 $ref: '#/components/schemas/health-zones'
+ *       404:
+ *         description: Message of error.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/resource-not-found'
 */
 router.get('/health-zones', ctrlHealthZones.healthZonesReadAll);
 
 
 /**
  * @swagger
- * /health-zones/{id}:
+ * /api/health-zones/{id}:
  *   get:
- *     summary: Retrieve a health zone
- *     description: Retrieve a health zone with the information
+ *     summary: Retrieves a health zone
+ *     description: Retrieves a health zone with the information
  *     tags:
  *       - health-zones
  *     parameters:
@@ -251,15 +296,23 @@ router.get('/health-zones', ctrlHealthZones.healthZonesReadAll);
  *               type: array
  *               items:
  *                 $ref: '#/components/schemas/health-zones'
+ *       404:
+ *         description: Message of error.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/resource-not-found'
 */
 router.get('/health-zones/:id', ctrlHealthZones.healthZoneReadOne);
 
 /**
  * @swagger
- * /vaccination:
+ * /api/vaccination:
  *   get:
- *     summary: Retrieve a list of people vaccinated
- *     description: Retrieve a list of percentage of people vaccinated by region
+ *     summary: Retrieves a list of people vaccinated
+ *     description: Retrieves a list of percentage of people vaccinated by region
  *     tags:
  *       - vaccination
  *     responses:
@@ -271,9 +324,45 @@ router.get('/health-zones/:id', ctrlHealthZones.healthZoneReadOne);
  *               type: array
  *               items:
  *                 $ref: '#/components/schemas/vaccination'
+ *       404:
+ *         description: Message of error.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/resource-not-found'
 */
 router.get('/vaccination', ctrlVaccination.vaccinationReadAll);
 
+/**
+ * @swagger
+ * /api/vaccination:
+ *   post:
+ *     tags:
+ *       - vaccination
+ *     summary: Adds a new vaccination instance
+ *     description: Adds a new vaccination instance
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: vaccination
+ *         in: body
+ *         required: true
+ *         schema:
+ *           $ref: '#/components/schemas/vaccination'
+ *     responses:
+ *       201:
+ *         description: Successfully added
+ *       500:
+ *         description: Message of error.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/resource-not-found'
+*/
 router.post('/vaccination', ctrlVaccination.vaccinationCreate);
 
 module.exports = router;

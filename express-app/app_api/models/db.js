@@ -43,3 +43,4 @@ require('./count-hombres');
 require('./count-mujeres');
 require('./health-zones');
 require('./vaccination');
+require('./resource-not-found');
