@@ -9,7 +9,8 @@ const sendJSONresponse = (res, status, content) => {
 /* GET api/health-zones */
 const healthZonesReadAll = (req, res) => {
     hz
-      .find({$or: [{covid19: 'Covid-19 Virus identificado'}, {covid19: 'Covid-19 Virus no identificado (sospechoso)'}]})
+      // .find({$or: [{covid19: 'Covid-19 Virus identificado'}, {covid19: 'Covid-19 Virus no identificado (sospechoso)'}]})
+      .find({})
       .exec((err, healthZones) => {
           if (!healthZones) {
             sendJSONresponse(res, 404, {"message" : "health zones not found"});

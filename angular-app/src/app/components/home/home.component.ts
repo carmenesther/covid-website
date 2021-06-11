@@ -13,8 +13,8 @@ import { HealthZoneModel } from 'src/app/models/health-zone.model';
 })
 export class HomeComponent implements OnInit {
 
-  deathDataSource = new MatTableDataSource<DeathModel>();
-  healthZoneDataSource = new MatTableDataSource<HealthZoneModel>();
+  deathsDataSource = new MatTableDataSource<DeathModel>();
+  healthZonesDataSource = new MatTableDataSource<HealthZoneModel>();
   deaths: any = [];
   healthZones: any = [];
 
@@ -34,18 +34,18 @@ export class HomeComponent implements OnInit {
   getAllDeaths() {
     this.db.getAllDeaths().subscribe(data => {
       this.deaths = data;
-      this.deathDataSource = new MatTableDataSource<DeathModel>(this.deaths);
-      this.deathDataSource.sort = this.sort;
-      this.deathDataSource.paginator = this.paginator;
+      this.deathsDataSource = new MatTableDataSource<DeathModel>(this.deaths);
+      this.deathsDataSource.sort = this.sort;
+      this.deathsDataSource.paginator = this.paginator;
     });
   }
 
   getAllHealthZones() {
     this.db.getAllHealthZones().subscribe(data => {
       this.healthZones = data;
-      this.healthZoneDataSource = new MatTableDataSource<HealthZoneModel>(this.healthZones);
-      this.healthZoneDataSource.sort = this.sort;
-      this.healthZoneDataSource.paginator = this.paginator;
+      this.healthZonesDataSource = new MatTableDataSource<HealthZoneModel>(this.healthZones);
+      this.healthZonesDataSource.sort = this.sort;
+      this.healthZonesDataSource.paginator = this.paginator;
     });
   }
 /*
