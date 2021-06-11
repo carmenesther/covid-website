@@ -14,6 +14,7 @@ import { DeathsComponent } from './components/deaths/deaths.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { VaccinationComponent } from './components/vaccination/vaccination.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     HomeComponent,
     MenuComponent,
     HealthZonesComponent,
-    DeathsComponent
+    DeathsComponent,
+    VaccinationComponent
   ],
   imports: [
     BrowserModule,

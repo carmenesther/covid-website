@@ -3,6 +3,7 @@ import { HealthZonesComponent } from './components/health-zones/health-zones.com
 import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 import { HomeComponent } from './components/home/home.component';
+import { VaccinationComponent } from './components/vaccination/vaccination.component';
 
 const routes: Routes = [
   {
@@ -10,12 +11,16 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
+    path: 'deaths',
+    component: DeathsComponent
+  },
+  {
     path: 'health-zones',
     component: HealthZonesComponent
   },
   {
-    path: 'deaths',
-    component: DeathsComponent
+    path: 'vaccination',
+    component: VaccinationComponent
   },
   {
     path: '**',
