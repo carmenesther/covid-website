@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { DbService } from 'src/app/services/db.service';
+import { faFemale, faMale, faVenusMars, faBirthdayCake, faSkull, faCalendar } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-deaths',
@@ -13,6 +14,14 @@ export class DeathsComponent implements OnInit {
   pagedList: any= [];
   length;
   wait: boolean = true;
+
+  /** ICONS USADOS */
+  faFemale = faFemale;
+  faMale = faMale;
+  faBothGenders = faVenusMars;
+  faBirthday = faBirthdayCake;
+  faDeath = faSkull;
+  faCalendar = faCalendar;
 
   constructor(private db: DbService) { }
 

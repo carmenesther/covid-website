@@ -1,3 +1,4 @@
+import { DeathsBySexComponent } from './components/deaths/deaths-by-sex/deaths-by-sex.component';
 import { DeathsComponent } from './components/deaths/deaths.component';
 import { HealthZonesComponent } from './components/health-zones/health-zones.component';
 import {RouterModule, Routes} from '@angular/router';
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: 'deaths',
     component: DeathsComponent
+  },
+  {
+    path: 'deaths/:sex',
+    component: DeathsBySexComponent
   },
   {
     path: 'health-zones',

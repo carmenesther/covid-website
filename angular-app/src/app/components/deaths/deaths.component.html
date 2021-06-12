@@ -8,16 +8,42 @@
             <mat-card *ngFor="let item of pagedList" style="margin-top:10px;">
                 <mat-card-header>
                     <mat-card-title>{{item.covid19}}</mat-card-title>
-                    <mat-card-subtitle>{{item.edad}}</mat-card-subtitle>
                 </mat-card-header>
                 <mat-card-content>
-                    
+                    <div fxLayout="row" fxLayoutAlign="space-around start">
+                        <div>
+                            <fa-icon [icon]="faBothGenders" size="2x" *ngIf="item.sexo == 'Total'"></fa-icon>
+                            <fa-icon [icon]="faFemale" size="2x" *ngIf="item.sexo == 'Mujeres'"></fa-icon>
+                            <fa-icon [icon]="faMale" size="2x" *ngIf="item.sexo == 'Hombres'"></fa-icon>
+                            <span>{{item.sexo}}</span>
+                        </div>
+                        <div>
+                            <fa-icon [icon]="faBirthday" size="2x"></fa-icon>
+                            <span>{{item.edad}}</span>
+                        </div>
+                        <div>
+                            <fa-icon [icon]="faCalendar" size="2x"></fa-icon>
+                            <span>{{item.mes_defuncion}}</span>
+                        </div>
+                        <div>
+                            <fa-icon [icon]="faDeath" size="2x"></fa-icon>
+                            <span>{{item.total}}</span>
+                        </div>
+                    </div>
                 </mat-card-content>
             </mat-card>
         </div>
-        <div fxLayout="column" fxFlex="40">
-            <div>Mujer</div>
-            <div>Hombre</div>
+        <div class="graphics-container"fxLayout="row" fxFlex="40" fxLayoutAlign="space-around">
+            <div fxLayout="column">
+                <a routerLink="/deaths/mujeres">
+                    <fa-icon [icon]="faFemale" size="5x" style="color:pink"></fa-icon>
+                </a>
+            </div>
+            <div fxLayout="column">
+                <a routerLink="/deaths/hombres">
+                    <fa-icon [icon]="faMale" size="5x" style="color:lightskyblue"></fa-icon>
+                </a>
+            </div>
         </div>
     </div>
 

@@ -11,11 +11,12 @@ import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './shared/components/menu/menu.component';
 import { HealthZonesComponent } from './components/health-zones/health-zones.component';
 import { DeathsComponent } from './components/deaths/deaths.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { VaccinationComponent } from './components/vaccination/vaccination.component';
 
+import { FontAwesomeModule, FaIconComponent } from '@fortawesome/angular-fontawesome';
+import { DeathsBySexComponent } from './components/deaths/deaths-by-sex/deaths-by-sex.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { VaccinationComponent } from './components/vaccination/vaccination.compo
     MenuComponent,
     HealthZonesComponent,
     DeathsComponent,
-    VaccinationComponent
+    VaccinationComponent,
+    DeathsBySexComponent
   ],
   imports: [
     BrowserModule,
@@ -35,8 +37,9 @@ import { VaccinationComponent } from './components/vaccination/vaccination.compo
     FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule
-  ],
+    ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ FaIconComponent ],
 })
 export class AppModule { }
