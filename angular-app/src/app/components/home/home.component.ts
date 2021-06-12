@@ -1,5 +1,5 @@
 import { DbService } from 'src/app/services/db.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { DeathModel } from 'src/app/models/death.model';
 import { MatPaginator } from '@angular/material/paginator';
@@ -23,8 +23,10 @@ export class HomeComponent implements OnInit {
   deathsDisplayedColumns: string[] = ['sexo', 'edad', 'mes', 'total'];
   healthZonesDisplayedColumns: string[] = ['zona_basica_salud', 'fecha_informe', 'casos_confirmados_totales', 'tasa_incidencia_acumulada_total'];
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild('healthPaginator') healthPaginator: MatPaginator;
+  @ViewChild('deathPaginator') deathPaginator: MatPaginator;
+
+  @ViewChildren(MatSort) sort = new QueryList<MatSort>();
 
   constructor(private db: DbService) { }
 
@@ -37,8 +39,8 @@ export class HomeComponent implements OnInit {
     this.db.getAllDeaths().subscribe(data => {
       this.deaths = data;
       this.deathsDataSource = new MatTableDataSource<DeathModel>(this.deaths);
-      this.deathsDataSource.sort = this.sort;
-      this.deathsDataSource.paginator = this.paginator;
+      this.deathsDataSource.sort = this.sort.toArray()[0];
+      this.deathsDataSource.paginator = this.deathPaginator;
       this.waitD = false;
     });
   }
@@ -47,8 +49,8 @@ export class HomeComponent implements OnInit {
     this.db.getAllHealthZones().subscribe(data => {
       this.healthZones = data;
       this.healthZonesDataSource = new MatTableDataSource<HealthZoneModel>(this.healthZones);
-      this.healthZonesDataSource.sort = this.sort;
-      this.healthZonesDataSource.paginator = this.paginator;
+      this.healthZonesDataSource.sort = this.sort.toArray()[1];
+      this.healthZonesDataSource.paginator = this.healthPaginator;
       this.waitH = false;
     });
   }

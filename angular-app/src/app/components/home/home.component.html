@@ -41,7 +41,7 @@
                     <mat-header-row *matHeaderRowDef="deathsDisplayedColumns"></mat-header-row>
                     <mat-row *matRowDef="let row; columns: deathsDisplayedColumns; "></mat-row>
                 </mat-table>
-                <mat-paginator [pageSizeOptions]="[8, 16, 24, 100]"></mat-paginator>
+                <mat-paginator #deathPaginator [pageSizeOptions]="[8, 16, 24, 100]"></mat-paginator>
             </mat-card-content>
         </mat-card>
     </div>
@@ -85,7 +85,7 @@
                     <mat-header-row *matHeaderRowDef="healthZonesDisplayedColumns"></mat-header-row>
                     <mat-row *matRowDef="let row; columns: healthZonesDisplayedColumns; "></mat-row>
                 </mat-table>
-                <mat-paginator [pageSizeOptions]="[8, 16, 24, 100]"></mat-paginator>
+                <mat-paginator #healthPaginator [pageSizeOptions]="[8, 16, 24, 100]"></mat-paginator>
             </mat-card-content>
         </mat-card>
     </div>
