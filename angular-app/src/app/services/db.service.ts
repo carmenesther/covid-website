@@ -36,12 +36,20 @@ export class DbService {
     return this.http.get(`${this.apiUrl}/api/health-zones/${id}`);
   }
 
+  patchHealthZone(id, changesHealthZone: JSON) {
+    return this.http.patch(`${this.apiUrl}/api/health-zones/${id}`, changesHealthZone);
+  }
+
   getAllVaccination() {
     return this.http.get(`${this.apiUrl}/api/vaccination`);
   }
 
   addVaccination(vaccination: VaccinationModel) {
     return this.http.post(`${this.apiUrl}/api/vaccination/`, vaccination);
+  }
+
+  removeVaccination(id) {
+    return this.http.delete(`${this.apiUrl}/api/vaccination/${id}`);
   }
 
 }
