@@ -35,7 +35,7 @@
                     <!-- Acciones -->
                     <ng-container matColumnDef="actions">
                         <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
-                        <mat-cell *matCellDef="let element"> 
+                        <mat-cell *matCellDef="let element">
                             <button mat-button color="warn" (click)="delete(element._id)">
                                 <fa-icon [icon]="faDelete" size="lg"></fa-icon>
                             </button>
@@ -56,8 +56,10 @@
                                 formControlName="region" [(ngModel)]="vaccination.comunidad_autonoma" required>
                         </mat-form-field>
                         <mat-form-field fxFlex="45">
-                            <input matInput type="date" placeholder="Fecha" name="date" formControlName="date"
-                                [(ngModel)]="vaccination.fecha" required>
+                            <input matInput [matDatepicker]="picker" placeholder="Fecha" name="date"
+                                formControlName="date" [(ngModel)]="vaccination.fecha">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
                         </mat-form-field>
                         <mat-form-field fxFlex="45">
                             <input matInput type="number" placeholder="Porcentaje primera dosis" name="first_dose"

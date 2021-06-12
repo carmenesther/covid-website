@@ -15,7 +15,7 @@
             <p>Tasa de incidencia acumulada total: {{item.tasa_incidencia_acumulada_total | replaceNullWithText: 'No definido' }}</p>
             <p>Fecha del informe: {{item.fecha_informe | date:'dd/MM/yyyy'}}</p>
             <div fxLayoutAlign="end">
-                <button mat-raised-button color="primary" [routerLink]="['/health-zones-edit', item._id]">Editar</button>
+                <button mat-raised-button color="primary" [routerLink]="['/health-zones', item._id]">Editar</button>
             </div>
         </mat-expansion-panel>
     </mat-accordion>

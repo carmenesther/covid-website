@@ -23,12 +23,10 @@ import { HealthZonesComponent } from './components/health-zones/health-zones.com
 import { DeathsComponent } from './components/deaths/deaths.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { VaccinationComponent } from './components/vaccination/vaccination.component';
-import { DeathsBySexComponent } from './components/deaths/deaths-by-sex/deaths-by-sex.component';
 import { DeathsByIdComponent } from './components/deaths/deaths-by-id/deaths-by-id.component';
 import { ReplaceNullWithTextPipe } from './shared/pipes/replace-null-with-text.pipe';
-import { EditHealthZoneComponent } from './components/edit-health-zone/edit-health-zone.component';
-import { HealthZonesEditComponent } from './components/health-zones-edit/health-zones-edit.component';
-
+import { EditHealthZoneComponent } from './components/health-zones/edit-health-zone/edit-health-zone.component';
+import { DeathsByGenderComponent } from './components/deaths/deaths-by-gender/deaths-by-gender.component';
 
 @NgModule({
   declarations: [
@@ -38,11 +36,10 @@ import { HealthZonesEditComponent } from './components/health-zones-edit/health-
     HealthZonesComponent,
     DeathsComponent,
     VaccinationComponent,
-    DeathsBySexComponent,
     DeathsByIdComponent,
     ReplaceNullWithTextPipe,
     EditHealthZoneComponent,
-    HealthZonesEditComponent
+    DeathsByGenderComponent
   ],
   imports: [
     BrowserModule,

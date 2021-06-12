@@ -1,12 +1,12 @@
-import { EditHealthZoneComponent } from './components/edit-health-zone/edit-health-zone.component';
+import { EditHealthZoneComponent } from './components/health-zones/edit-health-zone/edit-health-zone.component';
 import { DeathsByIdComponent } from './components/deaths/deaths-by-id/deaths-by-id.component';
-import { DeathsBySexComponent } from './components/deaths/deaths-by-sex/deaths-by-sex.component';
 import { DeathsComponent } from './components/deaths/deaths.component';
 import { HealthZonesComponent } from './components/health-zones/health-zones.component';
 import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 import { HomeComponent } from './components/home/home.component';
 import { VaccinationComponent } from './components/vaccination/vaccination.component';
+import { DeathsByGenderComponent } from './components/deaths/deaths-by-gender/deaths-by-gender.component';
 
 const routes: Routes = [
   {
@@ -22,15 +22,15 @@ const routes: Routes = [
     component: DeathsByIdComponent
   },
   {
-    path: 'deaths/:sex',
-    component: DeathsBySexComponent
+    path: 'deaths/gender/:gender',
+    component: DeathsByGenderComponent
   },
   {
     path: 'health-zones',
     component: HealthZonesComponent
   },
   {
-    path: 'health-zones-edit/:id',
+    path: 'health-zones/:id',
     component: EditHealthZoneComponent
   },
   {

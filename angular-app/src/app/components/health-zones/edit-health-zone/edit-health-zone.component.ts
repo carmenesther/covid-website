@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
+import * as moment from 'moment';
 import { DbService } from 'src/app/services/db.service';
 
 @Component({
@@ -13,6 +14,7 @@ export class EditHealthZoneComponent implements OnInit {
 
   healthZoneID = "";
   healthZone: any = [];
+  date;
   title = "";
   form: FormGroup;
 
@@ -25,15 +27,18 @@ export class EditHealthZoneComponent implements OnInit {
   }
 
   getHealthZone() {
-    this.healthZone = this.db.getHealthZone(this.healthZoneID);
+    this.healthZone = this.db.getHealthZone(this.healthZoneID).subscribe(data => {
+      this.healthZone = data;
+      this.title = this.healthZone.zona_basica_salud;
+    });
   }
 
   createForm() {
     this.form = this.fb.group({
-      zona_basica_salud: [''],
-      fecha_informe: [''],
-      casos_confirmados_totales: [''],
-      tasa_indicendia_acumulada_total: ['']
+      zona_basica_salud: [this.healthZone.zona_basica_salud],
+      fecha_informe: [new Date(this.healthZone.fecha_informe)],
+      casos_confirmados_totales: [this.healthZone.casos_confirmados_totales],
+      tasa_incidencia_acumulada_total: [this.healthZone.tasa_incidencia_acumulada_total]
     });
   }
 

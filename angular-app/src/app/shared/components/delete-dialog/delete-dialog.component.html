@@ -1,11 +1,11 @@
-<mat-dialog-content>
+<div mat-dialog-content>
     <div fxLayoutAlign="center">
         <h2>
             {{message}}
         </h2>
     </div>
-</mat-dialog-content>
-<mat-dialog-actions align="center">
+</div>
+<div mat-dialog-actions align="center">
 	<button mat-raised-button color="warn" (click)="onConfirmClick()" tabindex="1">{{confirmButtonText}}</button>
 	<button mat-raised-button mat-dialog-close tabindex="-1">{{cancelButtonText}}</button>
-</mat-dialog-actions>
+</div>
