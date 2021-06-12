@@ -8,7 +8,7 @@ const sendJSONresponse = (res, status, content) => {
 
 /* GET api/vaccination */
 const vaccinationReadAll = (req, res) => {
-    hz
+    v
         .find({})
         .exec((err, vaccination) => {
             if (!vaccination) {
