@@ -20,6 +20,7 @@ import { VaccinationComponent } from './components/vaccination/vaccination.compo
 import { DeathsBySexComponent } from './components/deaths/deaths-by-sex/deaths-by-sex.component';
 import { DeathsByIdComponent } from './components/deaths/deaths-by-id/deaths-by-id.component';
 import { ReplaceNullWithTextPipe } from './shared/pipes/replace-null-with-text.pipe';
+import { HealthZoneByIdComponent } from './components/health-zones/health-zone-by-id/health-zone-by-id.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { ReplaceNullWithTextPipe } from './shared/pipes/replace-null-with-text.p
     VaccinationComponent,
     DeathsBySexComponent,
     DeathsByIdComponent,
-    ReplaceNullWithTextPipe
+    ReplaceNullWithTextPipe,
+    HealthZoneByIdComponent
   ],
   imports: [
     BrowserModule,

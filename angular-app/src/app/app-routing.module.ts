@@ -1,3 +1,4 @@
+import { HealthZoneByIdComponent } from './components/health-zones/health-zone-by-id/health-zone-by-id.component';
 import { DeathsByIdComponent } from './components/deaths/deaths-by-id/deaths-by-id.component';
 import { DeathsBySexComponent } from './components/deaths/deaths-by-sex/deaths-by-sex.component';
 import { DeathsComponent } from './components/deaths/deaths.component';
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'health-zones',
     component: HealthZonesComponent
+  },
+  {
+    path: 'health-zones/:id',
+    component: HealthZoneByIdComponent
   },
   {
     path: 'vaccination',

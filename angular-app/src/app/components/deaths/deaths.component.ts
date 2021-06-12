@@ -4,7 +4,7 @@ import { DbService } from 'src/app/services/db.service';
 import { faFemale, faMale, faVenusMars, faBirthdayCake, faSkull, faCalendar } from '@fortawesome/free-solid-svg-icons';
 
 import { ChartType, ChartOptions } from 'chart.js';
-import { SingleDataSet, Label, monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip } from 'ng2-charts';
+import { SingleDataSet, Label, monkeyPatchChartJsTooltip } from 'ng2-charts';
 
 @Component({
   selector: 'app-deaths',
