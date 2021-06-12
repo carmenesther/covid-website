@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { DbService } from 'src/app/services/db.service';
 import { MatTableDataSource } from '@angular/material/table';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-vaccination',
@@ -14,6 +15,9 @@ export class VaccinationComponent implements OnInit {
 
   vaccinations: any = [];
   wait: boolean = true;
+  vaccination: any = {};
+
+  form: FormGroup;
 
   vaccinationDataSource = new MatTableDataSource<VaccinationModel>();
   displayedColumns: string[] = ['region', 'date', 'first_dose', 'second_dose', 'total'];
@@ -22,10 +26,20 @@ export class VaccinationComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private db: DbService) { }
+  constructor(private db: DbService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.getVaccinations();
+    this.createForm();
+  }
+  createForm() {
+    this.form = this.fb.group({
+      region: ['', Validators.required],
+      date: ['', Validators.required],
+      first_dose: ['', Validators.required],
+      second_dose: ['', Validators.required],
+      total: ['', Validators.required]
+    });
   }
 
   getVaccinations() {
@@ -39,4 +53,8 @@ export class VaccinationComponent implements OnInit {
       });
   }
 
+  submit(){
+    if (this.form.invalid) { return; }
+    this.db.addVaccination(this.vaccination).subscribe(data => console.log(data));
+  }
 }

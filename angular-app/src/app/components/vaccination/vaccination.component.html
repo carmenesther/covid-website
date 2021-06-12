@@ -38,6 +38,61 @@
                 <mat-paginator [pageSizeOptions]="[8, 16, 24, 100]"></mat-paginator>
             </div>
         </mat-tab>
-        <mat-tab label="Añadir Vacuna">Content 2</mat-tab>
+        <mat-tab label="Añadir Vacuna">
+            <div class="form">
+                <form [formGroup]="form" (ngSubmit)="submit()">
+                    <div class="user-form" fxLayout="row wrap" fxLayoutAlign="start center">
+                        <mat-form-field fxFlex="45">
+                          <input matInput
+                                 type="text"
+                                 placeholder="Comunidad autónoma"
+                                 name="region"
+                                 formControlName="region"
+                                 [(ngModel)]="vaccination.comunidad_autonoma"
+                                 required>
+                        </mat-form-field>
+                        <mat-form-field fxFlex="45">
+                          <input matInput
+                                 type="text"
+                                 placeholder="Fecha"
+                                 name="date"
+                                 formControlName="date"
+                                 [(ngModel)]="vaccination.fecha"
+                                 required>
+                        </mat-form-field>
+                        <mat-form-field fxFlex="45">
+                          <input matInput
+                                 type="number"
+                                 placeholder="Porcentaje primera dosis"
+                                 name="first_dose"
+                                 formControlName="first_dose"
+                                 [(ngModel)]="vaccination.porcentaje_primera_dosis"
+                                 required>
+                        </mat-form-field>
+                        <mat-form-field fxFlex="45">
+                          <input matInput
+                                 type="number"
+                                 placeholder="Porcentaje segunda dosis"
+                                 name="second_dose"
+                                 formControlName="second_dose"
+                                 [(ngModel)]="vaccination.porcentaje_segunda_dosis"
+                                 required>
+                        </mat-form-field>
+                        <mat-form-field fxFlex="45">
+                            <input matInput
+                                   type="number"
+                                   placeholder="Porcentaje total"
+                                   name="total"
+                                   formControlName="total"
+                                   [(ngModel)]="vaccination.porcentaje_total"
+                                   required>
+                          </mat-form-field>                        
+                    </div>
+                    <div class="submit-btn-container" fxLayoutAlign="end center">
+                      <button mat-raised-button color="primary" class="btn-block">Añadir vacuna</button>
+                    </div>
+                  </form>
+            </div>
+        </mat-tab>
     </mat-tab-group>
 </div>
