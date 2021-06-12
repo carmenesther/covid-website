@@ -3,7 +3,7 @@
     <mat-spinner *ngIf="waitH"></mat-spinner>
 </div>
 <div class="container">
-    <div class="deaths-container-table" [hidden]="waitD">
+    <div class="deaths-container-table" [hidden]="wait">
         <mat-card class="mat-elevation-z8">
             <mat-card-header>
                 <mat-card-title>Muertes</mat-card-title>
@@ -47,7 +47,7 @@
     </div>
 
 
-    <div class="health-zones-container-table" [hidden]="waitH">
+    <div class="health-zones-container-table" [hidden]="wait">
         <mat-card class="mat-elevation-z8">
             <mat-card-header>
                 <mat-card-title>Casos confirmados</mat-card-title>

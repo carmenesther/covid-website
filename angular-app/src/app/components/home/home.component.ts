@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   healthZonesDataSource = new MatTableDataSource<HealthZoneModel>();
   deaths: any = [];
   healthZones: any = [];
+  wait: boolean = true;
   waitD: boolean = true;
   waitH: boolean = true;
 
@@ -42,6 +43,9 @@ export class HomeComponent implements OnInit {
       this.deathsDataSource.sort = this.sort.toArray()[0];
       this.deathsDataSource.paginator = this.deathPaginator;
       this.waitD = false;
+      if (this.waitH == false) {
+        this.wait = false;
+      } 
     });
   }
 
@@ -52,6 +56,9 @@ export class HomeComponent implements OnInit {
       this.healthZonesDataSource.sort = this.sort.toArray()[1];
       this.healthZonesDataSource.paginator = this.healthPaginator;
       this.waitH = false;
+      if (this.waitD == false) {
+        this.wait = false;
+      } 
     });
   }
 
