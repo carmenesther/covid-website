@@ -1,5 +1,5 @@
 import { MaterialModule } from './shared/modules/material/material.module';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -10,6 +10,12 @@ import {AppRoutingModule} from './app-routing.module';
 import { FontAwesomeModule, FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { ChartsModule } from 'ng2-charts';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { registerLocaleData } from '@angular/common';
+
+import localeES from '@angular/common/locales/es';
+
+registerLocaleData(localeES, 'es');
 
 import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './shared/components/menu/menu.component';
@@ -48,7 +54,7 @@ import { HealthZoneByIdComponent } from './components/health-zones/health-zone-b
     FlexLayoutModule,
     ChartsModule
     ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'es' }],
   bootstrap: [AppComponent],
   entryComponents: [ FaIconComponent ],
 })

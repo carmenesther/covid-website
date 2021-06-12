@@ -4,5 +4,5 @@ export class VaccinationModel {
     porcentaje_primera_dosis: number;
     porcentaje_segunda_dosis: number;
     porcentaje_total: number;
-    fecha: string;  
+    fecha: Date;  
 }

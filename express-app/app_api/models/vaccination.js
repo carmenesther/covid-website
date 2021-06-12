@@ -18,7 +18,7 @@ const vaccinationSchema = new mongoose.Schema({
         required: true
     },
     fecha: {
-        type: String,
+        type: Date,
         required: true
     }
 });

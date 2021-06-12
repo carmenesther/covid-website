@@ -5,6 +5,8 @@ import { MatSort } from '@angular/material/sort';
 import { DbService } from 'src/app/services/db.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vaccination',
@@ -22,11 +24,9 @@ export class VaccinationComponent implements OnInit {
   vaccinationDataSource = new MatTableDataSource<VaccinationModel>();
   displayedColumns: string[] = ['region', 'date', 'first_dose', 'second_dose', 'total'];
 
-
-  @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private db: DbService, private fb: FormBuilder) { }
+  constructor(private db: DbService, private fb: FormBuilder, private _snackBar: MatSnackBar, private router: Router) { }
 
   ngOnInit(): void {
     this.getVaccinations();
@@ -47,7 +47,6 @@ export class VaccinationComponent implements OnInit {
       data => { 
         this.vaccinations = data;
         this.vaccinationDataSource = new MatTableDataSource<VaccinationModel>(this.vaccinations);
-        this.vaccinationDataSource.sort = this.sort;
         this.vaccinationDataSource.paginator = this.paginator;
         this.wait = false;
       });
@@ -55,6 +54,15 @@ export class VaccinationComponent implements OnInit {
 
   submit(){
     if (this.form.invalid) { return; }
-    this.db.addVaccination(this.vaccination).subscribe(data => console.log(data));
+    this.db.addVaccination(this.vaccination).subscribe(data => {
+      this._snackBar.open('Vacuna Añadida', "", {
+        duration: 5000,
+        horizontalPosition: "end",
+        verticalPosition: "top",
+        panelClass: ['snackbar']
+      }).afterDismissed().subscribe(()=>{
+        window.location.reload();
+      });;
+    });
   }
 }

@@ -9,7 +9,7 @@ const sendJSONresponse = (res, status, content) => {
 /* GET api/vaccination */
 const vaccinationReadAll = (req, res) => {
     v
-        .find({})
+        .find({}).sort( { fecha: 1 } )
         .exec((err, vaccination) => {
             if (!vaccination) {
                 sendJSONresponse(res, 404, { "message": "vaccination not found" });
