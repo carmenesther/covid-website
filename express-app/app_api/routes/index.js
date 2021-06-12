@@ -406,4 +406,33 @@ router.get('/vaccination', ctrlVaccination.vaccinationReadAll);
 */
 router.post('/vaccination', ctrlVaccination.vaccinationCreate);
 
+/**
+ * @swagger
+ * /api/vaccination/{id}:
+ *   delete:
+ *     summary: Removes a vaccination
+ *     description: Removes a vaccination
+ *     tags:
+ *       - vaccination
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: Numeric ID of the vaccination to remove.
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       200:
+ *         description: Vaccination removed.
+ *       404:
+ *         description: Message of error.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/resource-not-found'
+*/
+router.get('/vaccination/:id', ctrlVaccination.vaccinationDelete);
+
 module.exports = router;

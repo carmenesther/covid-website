@@ -9,7 +9,7 @@ const sendJSONresponse = (res, status, content) => {
 /* GET api/vaccination */
 const vaccinationReadAll = (req, res) => {
     v
-        .find({}).sort( { fecha: 1 } )
+        .find({}).sort({ fecha: 1 })
         .exec((err, vaccination) => {
             if (!vaccination) {
                 sendJSONresponse(res, 404, { "message": "vaccination not found" });
@@ -39,7 +39,26 @@ const vaccinationCreate = (req, res) => {
     });
 };
 
+/* DELETE api/vaccination/:id */
+const vaccinationDelete = (req, res) => {
+    if (req.params.id) {
+        v
+            .findByIdAndRemove(locationid)
+            .exec((err, vaccination) => {
+                if (err) {
+                    sendJSONresponse(res, 404, err);
+                }
+                console.log("Vaccination " + req.params.id + " deleted");
+                sendJSONresponse(res, 204, null);
+            }
+            );
+    } else {
+        sendJSONresponse(res, 404, { "message": "No vaccination" });
+    }
+};
+
 module.exports = {
     vaccinationReadAll,
-    vaccinationCreate
+    vaccinationCreate,
+    vaccinationDelete
 };
