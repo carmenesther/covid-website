@@ -10,12 +10,12 @@
             </mat-card-header>
             <mat-divider></mat-divider>
             <mat-card-content>
-                <!--
+                
                 <mat-form-field appearance="outline">
                     <mat-label>Filtrar</mat-label>
-                    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. " #input>
+                    <input matInput (keyup)="applyFilterD($event)" placeholder="Ex. " #input>
                   </mat-form-field>
-                -->
+               
                 <mat-table [dataSource]="deathsDataSource" class="mat-elevation-z8" matSort>
                     <!-- Género -->
                     <ng-container matColumnDef="sexo">
@@ -54,12 +54,12 @@
             </mat-card-header>
             <mat-divider></mat-divider>
             <mat-card-content>
-                <!--
+                
                 <mat-form-field appearance="outline">
                     <mat-label>Filtrar</mat-label>
-                    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. " #input>
+                    <input matInput (keyup)="applyFilterH($event)" placeholder="Ex. " #input>
                   </mat-form-field>
-                -->
+               
                 <mat-table [dataSource]="healthZonesDataSource" class="mat-elevation-z8" matSort>
                     <!-- Zona básica de salud -->
                     <ng-container matColumnDef="zona_basica_salud">

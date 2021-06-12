@@ -54,10 +54,15 @@ export class HomeComponent implements OnInit {
       this.waitH = false;
     });
   }
-/*
-  applyFilter(event: Event) {
+
+  applyFilterD(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }*/
+    this.deathsDataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  applyFilterH(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.healthZonesDataSource.filter = filterValue.trim().toLowerCase();
+  }
 }
 
