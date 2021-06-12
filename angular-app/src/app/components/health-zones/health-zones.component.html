@@ -1,22 +1,24 @@
 <app-menu></app-menu>
-
-<div class="container">
+<div class="spinner" fxLayoutAlign="center center">
+    <mat-spinner *ngIf="wait"></mat-spinner>
+</div>
+<div class="container" [hidden]="wait">
     <mat-accordion>
-        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel *ngFor="let item of pagedList">
             <mat-expansion-panel-header>
                 <mat-panel-title>
-                    Almería
+                    {{item.zona_basica_salud}}
                 </mat-panel-title>
             </mat-expansion-panel-header>
-            <p>This is the primary content of the panel.</p>
-        </mat-expansion-panel>
-        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    Murcia
-                </mat-panel-title>
-            </mat-expansion-panel-header>
-            <p>I'm visible because I am open</p>
+            <p>Casos confirmados totales: {{item.casos_confirmados_totales}}</p>
+            <p>Tasa de incidencia acumulada total: {{item.tasa_incidencia_acumulada_total}}</p>
+            <p>Fecha del informe: {{item.fecha_informe | date:'dd/MM/yyyy'}}</p>
         </mat-expansion-panel>
     </mat-accordion>
+
+    <mat-paginator [length]="length"
+              [pageSize]="12"
+              [pageSizeOptions]="[12, 24, 36]"
+              (page)="onPageChange($event)">
+    </mat-paginator>
 </div>

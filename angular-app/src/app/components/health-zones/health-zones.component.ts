@@ -1,5 +1,6 @@
 import { DbService } from './../../services/db.service';
 import { Component, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-health-zones',
@@ -9,7 +10,9 @@ import { Component, OnInit } from '@angular/core';
 export class HealthZonesComponent implements OnInit {
 
   healthZones: any = [];
-  panelOpenState = false;
+  pagedList: any= [];
+  length;
+  wait: boolean = true;
 
   constructor(private db: DbService) { }
 
@@ -18,12 +21,24 @@ export class HealthZonesComponent implements OnInit {
   }
 
   getAllHealthZones() {
-    this.db.getAllHealthZones().subscribe((data) => {
+    this.db.getAllHealthZones().subscribe(data => {
       this.healthZones = data;
-      console.log(this.healthZones);
+      this.pagedList = this.healthZones.slice(0, 12);
+      this.length = this.healthZones.length;
+      this.wait = false;
     });
   }
 
+  onPageChange(event: PageEvent){
+    console.log(event);
+    const startIndex = event.pageIndex * event.pageSize;
+    let endIndex = startIndex + event.pageSize;
 
+    if(endIndex > this.healthZones.length){
+      endIndex = this.healthZones.length;
+    }
+
+    this.pagedList = this.healthZones.slice(startIndex, endIndex);
+  }
 
 }
