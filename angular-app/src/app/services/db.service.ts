@@ -50,7 +50,7 @@ export class DbService {
   }
 
   removeVaccination(id) {
-    return this.http.delete(`${this.apiUrl}/api/vaccination/${id}`);
+    return this.http.delete(`${this.apiUrl}/api/vaccination/${id}`).subscribe();
   }
 
 }
