@@ -17,6 +17,8 @@ export class HomeComponent implements OnInit {
   healthZonesDataSource = new MatTableDataSource<HealthZoneModel>();
   deaths: any = [];
   healthZones: any = [];
+  waitD: boolean = true;
+  waitH: boolean = true;
 
   deathsDisplayedColumns: string[] = ['sexo', 'edad', 'mes', 'total'];
   healthZonesDisplayedColumns: string[] = ['zona_basica_salud', 'fecha_informe', 'casos_confirmados_totales', 'tasa_incidencia_acumulada_total'];
@@ -37,6 +39,8 @@ export class HomeComponent implements OnInit {
       this.deathsDataSource = new MatTableDataSource<DeathModel>(this.deaths);
       this.deathsDataSource.sort = this.sort;
       this.deathsDataSource.paginator = this.paginator;
+      this.waitD = false;
+      console.log(this.deaths);
     });
   }
 
@@ -46,6 +50,8 @@ export class HomeComponent implements OnInit {
       this.healthZonesDataSource = new MatTableDataSource<HealthZoneModel>(this.healthZones);
       this.healthZonesDataSource.sort = this.sort;
       this.healthZonesDataSource.paginator = this.paginator;
+      this.waitH = false;
+      console.log(this.healthZones);
     });
   }
 /*

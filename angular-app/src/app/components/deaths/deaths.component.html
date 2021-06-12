@@ -1,8 +1,9 @@
 <app-menu></app-menu>
 <div class="container">
-    <div fxLayout="row">
+    <mat-spinner *ngIf="wait"></mat-spinner>
+    <div fxLayout="row" *ngIf="!wait">
         <div fxLayout="column" class="cards" fxFlex="60">
-            <mat-card *ngFor="let item of deaths" style="margin-top:10px;">
+            <mat-card *ngFor="let item of pagedList" style="margin-top:10px;">
                 <mat-card-header>
                     <mat-card-title>{{item.covid19}}</mat-card-title>
                     <mat-card-subtitle>{{item.edad}}</mat-card-subtitle>
@@ -17,4 +18,10 @@
             <div>Hombre</div>
         </div>
     </div>
+
+    <mat-paginator [length]="length"
+              [pageSize]="3"
+              [pageSizeOptions]="[3, 6, 9]"
+              (page)="onPageChange($event)">
+    </mat-paginator>
 </div>

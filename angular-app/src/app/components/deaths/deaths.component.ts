@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 import { DbService } from 'src/app/services/db.service';
 
 @Component({
@@ -8,7 +9,10 @@ import { DbService } from 'src/app/services/db.service';
 })
 export class DeathsComponent implements OnInit {
 
-  deaths: any = [];
+  deaths: any= [];
+  pagedList: any= [];
+  length;
+  wait: boolean = true;
 
   constructor(private db: DbService) { }
 
@@ -19,8 +23,22 @@ export class DeathsComponent implements OnInit {
   getAllDeaths() {
     this.db.getAllDeaths().subscribe(data => {
       this.deaths = data;
-      console.log(this.deaths);
+      this.pagedList = this.deaths.slice(0, 3);
+      this.length = this.deaths.length;
+      this.wait = false;
     });
+  }
+
+  onPageChange(event: PageEvent){
+    console.log(event);
+    const startIndex = event.pageIndex * event.pageSize;
+    let endIndex = startIndex + event.pageSize;
+
+    if(endIndex > this.deaths.length){
+      endIndex = this.deaths.length;
+    }
+
+    this.pagedList = this.deaths.slice(startIndex, endIndex);
   }
 
 }

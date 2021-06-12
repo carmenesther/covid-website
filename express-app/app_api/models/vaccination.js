@@ -14,7 +14,7 @@ const vaccinationSchema = new mongoose.Schema({
         required: true
     },
     porcentaje_total: {
-        type: String,
+        type: Number,
         required: true
     },
     fecha: {

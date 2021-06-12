@@ -1,8 +1,7 @@
 <app-menu></app-menu>
-
+<mat-spinner *ngIf="(waitD && waitH)"></mat-spinner>
 <div class="container">
-    <!--<mat-spinner *ngIf="deaths.length == 0"></mat-spinner>-->
-    <div class="deaths-container-table">
+    <div class="deaths-container-table" *ngIf="!waitD">
         <mat-card class="mat-elevation-z8">
             <mat-card-header>
                 <mat-card-title>Muertes</mat-card-title>
@@ -46,7 +45,7 @@
     </div>
 
 
-    <div class="health-zones-container-table">
+    <div class="health-zones-container-table" *ngIf="!waitH">
         <mat-card class="mat-elevation-z8">
             <mat-card-header>
                 <mat-card-title>Casos confirmados</mat-card-title>
