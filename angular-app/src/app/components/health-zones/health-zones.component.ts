@@ -1,7 +1,6 @@
 import { DbService } from './../../services/db.service';
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
-import { faEye } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-health-zones',
@@ -14,7 +13,6 @@ export class HealthZonesComponent implements OnInit {
   pagedList: any= [];
   length;
   wait: boolean = true;
-  faEye = faEye;
 
   constructor(private db: DbService) { }
 

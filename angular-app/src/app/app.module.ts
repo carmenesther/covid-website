@@ -26,7 +26,7 @@ import { VaccinationComponent } from './components/vaccination/vaccination.compo
 import { DeathsBySexComponent } from './components/deaths/deaths-by-sex/deaths-by-sex.component';
 import { DeathsByIdComponent } from './components/deaths/deaths-by-id/deaths-by-id.component';
 import { ReplaceNullWithTextPipe } from './shared/pipes/replace-null-with-text.pipe';
-import { HealthZoneByIdComponent } from './components/health-zones/health-zone-by-id/health-zone-by-id.component';
+import { EditHealthZoneComponent } from './components/health-zones/edit-health-zone/edit-health-zone.component';
 
 
 @NgModule({
@@ -40,7 +40,7 @@ import { HealthZoneByIdComponent } from './components/health-zones/health-zone-b
     DeathsBySexComponent,
     DeathsByIdComponent,
     ReplaceNullWithTextPipe,
-    HealthZoneByIdComponent
+    EditHealthZoneComponent
   ],
   imports: [
     BrowserModule,
