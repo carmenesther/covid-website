@@ -78,3 +78,7 @@ a {
   .mat-row:not(:nth-child(2n)) {
     background-color: #e4e893;
   }
+
+  .mat-expansion-panel-body {
+    padding: 20px!important;
+}

@@ -38,8 +38,13 @@ const deathsReadOne = (req, res) => {
 
 /* GET api/deaths-gender/:gender */
 const deathsReadByGender = (req, res) => {
+    const gender = req.params.gender;
+    const genderC = gender.charAt(0).toUpperCase() + gender.substring(1);
     d
-        .find({ 'sexo': req.params.sex })
+        .find().and([
+            { $or: [{covid19: 'Covid-19 Virus identificado'}, {covid19: 'Covid-19 Virus no identificado (sospechoso)'}] },
+            { $or: [{'sexo': genderC}] }
+        ])
         .exec((err, deaths) => {
             if (!deaths) {
                 sendJSONresponse(res, 404, { "message": "deaths not found" });
@@ -52,10 +57,14 @@ const deathsReadByGender = (req, res) => {
         });
 };
 
-/* GET api/deaths-countgender*/
+/* GET api/deaths-count-gender*/
 const deathsCountGender = (req, res) => {
     d
-        .countDocuments({ 'sexo': 'Hombres' })
+        .countDocuments()
+        .and([
+            { $or: [{covid19: 'Covid-19 Virus identificado'}, {covid19: 'Covid-19 Virus no identificado (sospechoso)'}] },
+            { $or: [{'sexo': 'Hombres'}] }
+        ])
         .exec((err, countHombres) => {
             if (!countHombres) {
                 sendJSONresponse(res, 404, { "message": "Hombres not found" });
@@ -64,7 +73,11 @@ const deathsCountGender = (req, res) => {
             }
             else {
                 d
-                    .countDocuments({ 'sexo': 'Mujeres' })
+                    .countDocuments()
+                    .and([
+                        { $or: [{covid19: 'Covid-19 Virus identificado'}, {covid19: 'Covid-19 Virus no identificado (sospechoso)'}] },
+                        { $or: [{'sexo': 'Mujeres'}] }
+                    ])
                     .exec((err, countMujeres) => {
                         if (!countMujeres) {
                             sendJSONresponse(res, 404, { "message": "Mujeres not found" });

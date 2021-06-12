@@ -2,6 +2,12 @@
     margin-left: 40px;
 }
 
+.icons-gender {
+    fa-icon {
+        margin-bottom: 20px;
+    }
+}
+
 fa-icon {
     margin-right: 10px;
     color: #4caf50;
@@ -11,8 +17,16 @@ fa-icon {
     margin-top: 40px;
 }
 
-.mat-card{
-    margin-top: 15px;
+.cards {
+    .mat-card{
+        margin-top: 15px;
+    }
+}
+
+.cards-gender {
+    .mat-card {
+        margin: 15px;
+    }
 }
 
 a {
@@ -21,4 +35,13 @@ a {
 
 a:hover{
     color: #4caf50;
+}
+
+.data-container-by-gender {
+    span {
+        font-size: 15px;;
+    }
+    strong {
+        color: #4caf50;
+    }
 }

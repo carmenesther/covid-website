@@ -11,9 +11,11 @@
                     <div fxFlex></div>
                 </mat-panel-title>
             </mat-expansion-panel-header>
-            <p>Casos confirmados totales: {{item.casos_confirmados_totales | replaceNullWithText: 'No definido' }}</p>
-            <p>Tasa de incidencia acumulada total: {{item.tasa_incidencia_acumulada_total | replaceNullWithText: 'No definido' }}</p>
-            <p>Fecha del informe: {{item.fecha_informe | date:'dd/MM/yyyy'}}</p>
+            <div class="health-zone-container" fxLayout="column">
+                <p><strong>Casos confirmados totales: </strong> {{item.casos_confirmados_totales | replaceNullWithText: 'No definido' }}</p>
+                <p><strong>Tasa de incidencia acumulada total: </strong> {{item.tasa_incidencia_acumulada_total | replaceNullWithText: 'No definido' }}</p>
+                <p><strong>Fecha del informe: </strong> {{item.fecha_informe | date:'dd/MM/yyyy'}}</p>
+            </div>
             <div fxLayoutAlign="end">
                 <button mat-raised-button color="primary" [routerLink]="['/health-zones', item._id]">Editar</button>
             </div>

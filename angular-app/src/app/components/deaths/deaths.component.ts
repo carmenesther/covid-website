@@ -51,8 +51,7 @@ export class DeathsComponent implements OnInit {
   getAllDeaths() {
     this.db.getAllDeaths().subscribe(data => {
       this.deaths = data;
-      console.log(this.deaths);
-      this.pagedList = this.deaths.slice(0, 5);
+      this.pagedList = this.deaths.slice(0, 4);
       this.length = this.deaths.length;
       this.wait = false;
     });
