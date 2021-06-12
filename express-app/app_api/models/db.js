@@ -38,7 +38,7 @@ process.on('SIGINT', () => {
 
 // BRING IN YOUR SCHEMAS & MODELS
 require('./deaths');
-require('./count-genre');
+require('./count-gender');
 require('./count-hombres');
 require('./count-mujeres');
 require('./health-zones');

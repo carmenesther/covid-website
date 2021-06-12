@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const countHombres = require('./count-hombres');
 const countMujeres = require('./count-mujeres');
 
-const countGenreSchema = new mongoose.Schema({
+const countGenderSchema = new mongoose.Schema({
     Hombres: {
         type: countHombres,
         required: true
@@ -13,4 +13,4 @@ const countGenreSchema = new mongoose.Schema({
     }
 });
 
-mongoose.model('count-genre', countGenreSchema);
+mongoose.model('count-gender', countGenderSchema);

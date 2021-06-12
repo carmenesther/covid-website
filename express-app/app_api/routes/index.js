@@ -33,7 +33,7 @@ router.get('/', function (req, res, next) {
  *           example: Enero
  *         sexo:
  *           type: string
- *           description: genre of the person.
+ *           description: gender of the person.
  *           example: Mujeres
  *         edad:
  *           type: string
@@ -43,7 +43,7 @@ router.get('/', function (req, res, next) {
  *           type: integer
  *           description: total of deaths.
  *           example: 1666
- *     count-genre:
+ *     count-gender:
  *       type: object
  *       properties:
  *         Hombres:
@@ -182,22 +182,22 @@ router.get('/deaths/:id', ctrlDeaths.deathsReadOne);
 
 /**
  * @swagger
- * /api/deaths-genre/{genre}:
+ * /api/deaths-gender/{gender}:
  *   get:
- *     summary: Retrieves a list of covid's deaths by genre
- *     description: Retrieves a list of covid's deaths by genre
+ *     summary: Retrieves a list of covid's deaths by gender
+ *     description: Retrieves a list of covid's deaths by gender
  *     tags:
  *       - deaths
  *     parameters:
  *       - in: path
- *         name: genre
+ *         name: gender
  *         required: true
- *         description: Genre of the person.
+ *         description: Gender of the person.
  *         schema:
  *           type: string
  *     responses:
  *       200:
- *         description: A list of deaths by a given genre.
+ *         description: A list of deaths by a given gender.
  *         content:
  *           application/json:
  *             schema:
@@ -213,25 +213,25 @@ router.get('/deaths/:id', ctrlDeaths.deathsReadOne);
  *               items:
  *                 $ref: '#/components/schemas/resource-not-found'
 */
-router.get('/deaths-genre/:genre', ctrlDeaths.deathsReadByGenre);
+router.get('/deaths-gender/:gender', ctrlDeaths.deathsReadByGender);
 
 /**
  * @swagger
- * /api/deaths-count-genre:
+ * /api/deaths-count-gender:
  *   get:
- *     summary: Retrieves two numbers of total deaths by genre
- *     description: Retrieves two numbers of total deaths by genre "Hombres" and genre "Mujeres"
+ *     summary: Retrieves two numbers of total deaths by gender
+ *     description: Retrieves two numbers of total deaths by gender "Hombres" and gender "Mujeres"
  *     tags:
  *       - deaths
  *     responses:
  *       200:
- *         description: Two numbers with the total deaths by genre "Hombres" and genre "Mujeres".
+ *         description: Two numbers with the total deaths by gender "Hombres" and gender "Mujeres".
  *         content:
  *           application/json:
  *             schema:
  *               type: array
  *               items:
- *                 $ref: '#/components/schemas/count-genre'
+ *                 $ref: '#/components/schemas/count-gender'
   *       404:
  *         description: Message of error.
  *         content:
@@ -241,7 +241,7 @@ router.get('/deaths-genre/:genre', ctrlDeaths.deathsReadByGenre);
  *               items:
  *                 $ref: '#/components/schemas/resource-not-found'
 */
-router.get('/deaths-count-genre', ctrlDeaths.deathsCountGenre);
+router.get('/deaths-count-gender', ctrlDeaths.deathsCountGender);
 
 /**
  * @swagger

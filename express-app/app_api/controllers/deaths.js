@@ -36,8 +36,8 @@ const deathsReadOne = (req, res) => {
         });
 };
 
-/* GET api/deaths-genre/:genre */
-const deathsReadByGenre = (req, res) => {
+/* GET api/deaths-gender/:gender */
+const deathsReadByGender = (req, res) => {
     d
         .find({ 'sexo': req.params.sex })
         .exec((err, deaths) => {
@@ -52,8 +52,8 @@ const deathsReadByGenre = (req, res) => {
         });
 };
 
-/* GET api/deaths-countgenre*/
-const deathsCountGenre = (req, res) => {
+/* GET api/deaths-countgender*/
+const deathsCountGender = (req, res) => {
     d
         .countDocuments({ 'sexo': 'Hombres' })
         .exec((err, countHombres) => {
@@ -85,6 +85,6 @@ const deathsCountGenre = (req, res) => {
 module.exports = {
     deathsReadAll,
     deathsReadOne,
-    deathsReadByGenre,
-    deathsCountGenre
+    deathsReadByGender,
+    deathsCountGender
 };
