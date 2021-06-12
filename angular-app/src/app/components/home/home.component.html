@@ -1,7 +1,9 @@
 <app-menu></app-menu>
-<mat-spinner *ngIf="(waitD && waitH)"></mat-spinner>
+<div class="spinner" fxLayoutAlign="center center">
+    <mat-spinner *ngIf="waitH"></mat-spinner>
+</div>
 <div class="container">
-    <div class="deaths-container-table" *ngIf="!waitD">
+    <div class="deaths-container-table" [hidden]="waitD">
         <mat-card class="mat-elevation-z8">
             <mat-card-header>
                 <mat-card-title>Muertes</mat-card-title>
@@ -45,7 +47,7 @@
     </div>
 
 
-    <div class="health-zones-container-table" *ngIf="!waitH">
+    <div class="health-zones-container-table" [hidden]="waitH">
         <mat-card class="mat-elevation-z8">
             <mat-card-header>
                 <mat-card-title>Casos confirmados</mat-card-title>

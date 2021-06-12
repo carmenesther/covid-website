@@ -40,7 +40,6 @@ export class HomeComponent implements OnInit {
       this.deathsDataSource.sort = this.sort;
       this.deathsDataSource.paginator = this.paginator;
       this.waitD = false;
-      console.log(this.deaths);
     });
   }
 
@@ -51,7 +50,6 @@ export class HomeComponent implements OnInit {
       this.healthZonesDataSource.sort = this.sort;
       this.healthZonesDataSource.paginator = this.paginator;
       this.waitH = false;
-      console.log(this.healthZones);
     });
   }
 /*
