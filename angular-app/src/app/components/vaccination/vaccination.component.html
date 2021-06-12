@@ -32,6 +32,15 @@
                         <mat-header-cell *matHeaderCellDef>Total (%)</mat-header-cell>
                         <mat-cell *matCellDef="let element"> {{element.porcentaje_total }} %</mat-cell>
                     </ng-container>
+                    <!-- Acciones -->
+                    <ng-container matColumnDef="actions">
+                        <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
+                        <mat-cell *matCellDef="let element"> 
+                            <button mat-button color="warn" (click)="delete(element._id)">
+                                <fa-icon [icon]="faDelete" size="lg"></fa-icon>
+                            </button>
+                        </mat-cell>
+                    </ng-container>
                     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
                     <mat-row *matRowDef="let row; columns: displayedColumns; "></mat-row>
                 </mat-table>
@@ -43,55 +52,32 @@
                 <form [formGroup]="form" (ngSubmit)="submit()">
                     <div class="user-form" fxLayout="row wrap" fxLayoutAlign="start center">
                         <mat-form-field fxFlex="45">
-                          <input matInput
-                                 type="text"
-                                 placeholder="Comunidad autónoma"
-                                 name="region"
-                                 formControlName="region"
-                                 [(ngModel)]="vaccination.comunidad_autonoma"
-                                 required>
+                            <input matInput type="text" placeholder="Comunidad autónoma" name="region"
+                                formControlName="region" [(ngModel)]="vaccination.comunidad_autonoma" required>
                         </mat-form-field>
                         <mat-form-field fxFlex="45">
-                          <input matInput
-                                 type="date"
-                                 placeholder="Fecha"
-                                 name="date"
-                                 formControlName="date"
-                                 [(ngModel)]="vaccination.fecha"
-                                 required>
+                            <input matInput type="date" placeholder="Fecha" name="date" formControlName="date"
+                                [(ngModel)]="vaccination.fecha" required>
                         </mat-form-field>
                         <mat-form-field fxFlex="45">
-                          <input matInput
-                                 type="number"
-                                 placeholder="Porcentaje primera dosis"
-                                 name="first_dose"
-                                 formControlName="first_dose"
-                                 [(ngModel)]="vaccination.porcentaje_primera_dosis"
-                                 required>
+                            <input matInput type="number" placeholder="Porcentaje primera dosis" name="first_dose"
+                                formControlName="first_dose" [(ngModel)]="vaccination.porcentaje_primera_dosis"
+                                required>
                         </mat-form-field>
                         <mat-form-field fxFlex="45">
-                          <input matInput
-                                 type="number"
-                                 placeholder="Porcentaje segunda dosis"
-                                 name="second_dose"
-                                 formControlName="second_dose"
-                                 [(ngModel)]="vaccination.porcentaje_segunda_dosis"
-                                 required>
+                            <input matInput type="number" placeholder="Porcentaje segunda dosis" name="second_dose"
+                                formControlName="second_dose" [(ngModel)]="vaccination.porcentaje_segunda_dosis"
+                                required>
                         </mat-form-field>
                         <mat-form-field fxFlex="45">
-                            <input matInput
-                                   type="number"
-                                   placeholder="Porcentaje total"
-                                   name="total"
-                                   formControlName="total"
-                                   [(ngModel)]="vaccination.porcentaje_total"
-                                   required>
-                          </mat-form-field>                        
+                            <input matInput type="number" placeholder="Porcentaje total" name="total"
+                                formControlName="total" [(ngModel)]="vaccination.porcentaje_total" required>
+                        </mat-form-field>
                     </div>
                     <div class="submit-btn-container" fxLayoutAlign="end center">
-                      <button mat-raised-button color="primary" class="btn-block">Añadir vacuna</button>
+                        <button mat-raised-button color="primary" class="btn-block">Añadir vacuna</button>
                     </div>
-                  </form>
+                </form>
             </div>
         </mat-tab>
     </mat-tab-group>

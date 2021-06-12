@@ -433,6 +433,6 @@ router.post('/vaccination', ctrlVaccination.vaccinationCreate);
  *               items:
  *                 $ref: '#/components/schemas/resource-not-found'
 */
-router.get('/vaccination/:id', ctrlVaccination.vaccinationDelete);
+router.delete('/vaccination/:id', ctrlVaccination.vaccinationDelete);
 
 module.exports = router;

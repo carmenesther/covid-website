@@ -41,14 +41,15 @@ const vaccinationCreate = (req, res) => {
 
 /* DELETE api/vaccination/:id */
 const vaccinationDelete = (req, res) => {
+    const id = req.params.id;
     if (req.params.id) {
         v
-            .findByIdAndRemove(locationid)
+            .findByIdAndRemove(id)
             .exec((err, vaccination) => {
                 if (err) {
                     sendJSONresponse(res, 404, err);
                 }
-                console.log("Vaccination " + req.params.id + " deleted");
+                console.log("Vaccination " +id + " deleted");
                 sendJSONresponse(res, 204, null);
             }
             );
