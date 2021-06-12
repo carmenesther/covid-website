@@ -35,7 +35,7 @@
                     <!-- Total -->
                     <ng-container matColumnDef="total">
                         <mat-header-cell *matHeaderCellDef mat-sort-header>Total</mat-header-cell>
-                        <mat-cell *matCellDef="let element"> {{element.total}}</mat-cell>
+                        <mat-cell *matCellDef="let element"> {{element.total | replaceNullWithText: 'No definido'}}</mat-cell>
                     </ng-container>
     
                     <mat-header-row *matHeaderRowDef="deathsDisplayedColumns"></mat-header-row>
@@ -74,12 +74,12 @@
                     <!-- Casos confirmados totales -->
                     <ng-container matColumnDef="casos_confirmados_totales">
                         <mat-header-cell *matHeaderCellDef mat-sort-header>Casos confirmados totales</mat-header-cell>
-                        <mat-cell *matCellDef="let element"> {{element.casos_confirmados_totales}}</mat-cell>
+                        <mat-cell *matCellDef="let element"> {{element.casos_confirmados_totales | replaceNullWithText: 'No definido'}}</mat-cell>
                     </ng-container>
                     <!-- Tasa de incidencia acumulada total -->
                     <ng-container matColumnDef="tasa_incidencia_acumulada_total">
                         <mat-header-cell *matHeaderCellDef mat-sort-header>Tasa de incidencia acumulada total</mat-header-cell>
-                        <mat-cell *matCellDef="let element"> {{element.tasa_incidencia_acumulada_total}}</mat-cell>
+                        <mat-cell *matCellDef="let element"> {{element.tasa_incidencia_acumulada_total | replaceNullWithText: 'No definido'}}</mat-cell>
                     </ng-container>
     
                     <mat-header-row *matHeaderRowDef="healthZonesDisplayedColumns"></mat-header-row>

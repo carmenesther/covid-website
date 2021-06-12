@@ -19,6 +19,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { VaccinationComponent } from './components/vaccination/vaccination.component';
 import { DeathsBySexComponent } from './components/deaths/deaths-by-sex/deaths-by-sex.component';
 import { DeathsByIdComponent } from './components/deaths/deaths-by-id/deaths-by-id.component';
+import { ReplaceNullWithTextPipe } from './shared/pipes/replace-null-with-text.pipe';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { DeathsByIdComponent } from './components/deaths/deaths-by-id/deaths-by-
     DeathsComponent,
     VaccinationComponent,
     DeathsBySexComponent,
-    DeathsByIdComponent
+    DeathsByIdComponent,
+    ReplaceNullWithTextPipe
   ],
   imports: [
     BrowserModule,

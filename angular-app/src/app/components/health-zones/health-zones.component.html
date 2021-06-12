@@ -10,8 +10,8 @@
                     {{item.zona_basica_salud}}
                 </mat-panel-title>
             </mat-expansion-panel-header>
-            <p>Casos confirmados totales: {{item.casos_confirmados_totales}}</p>
-            <p>Tasa de incidencia acumulada total: {{item.tasa_incidencia_acumulada_total}}</p>
+            <p>Casos confirmados totales: {{item.casos_confirmados_totales | replaceNullWithText: 'No definido' }}</p>
+            <p>Tasa de incidencia acumulada total: {{item.tasa_incidencia_acumulada_total | replaceNullWithText: 'No definido' }}</p>
             <p>Fecha del informe: {{item.fecha_informe | date:'dd/MM/yyyy'}}</p>
         </mat-expansion-panel>
     </mat-accordion>
