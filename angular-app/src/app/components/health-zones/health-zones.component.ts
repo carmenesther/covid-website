@@ -23,7 +23,7 @@ export class HealthZonesComponent implements OnInit {
   getAllHealthZones() {
     this.db.getAllHealthZones().subscribe(data => {
       this.healthZones = data;
-      this.pagedList = this.healthZones.slice(0, 12);
+      this.pagedList = this.healthZones.slice(0, 11);
       this.length = this.healthZones.length;
       this.wait = false;
     });
