@@ -1,4 +1,4 @@
-import { EditHealthZoneComponent } from './components/health-zones/edit-health-zone/edit-health-zone.component';
+import { EditHealthZoneComponent } from './components/edit-health-zone/edit-health-zone.component';
 import { DeathsByIdComponent } from './components/deaths/deaths-by-id/deaths-by-id.component';
 import { DeathsBySexComponent } from './components/deaths/deaths-by-sex/deaths-by-sex.component';
 import { DeathsComponent } from './components/deaths/deaths.component';
@@ -30,7 +30,7 @@ const routes: Routes = [
     component: HealthZonesComponent
   },
   {
-    path: 'health-zones/:id',
+    path: 'health-zones-edit/:id',
     component: EditHealthZoneComponent
   },
   {

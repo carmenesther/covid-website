@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { VaccinationModel } from 'src/app/models/vaccination.model';
+import { HealthZoneModel } from '../models/health-zone.model';
 
 @Injectable({
   providedIn: 'root'
@@ -36,8 +37,8 @@ export class DbService {
     return this.http.get(`${this.apiUrl}/api/health-zones/${id}`);
   }
 
-  patchHealthZone(id, changesHealthZone: JSON) {
-    return this.http.patch(`${this.apiUrl}/api/health-zones/${id}`, changesHealthZone);
+  updateHealthZone(id, healthZone: HealthZoneModel) {
+    return this.http.patch(`${this.apiUrl}/api/health-zones/${id}`, healthZone);
   }
 
   getAllVaccination() {

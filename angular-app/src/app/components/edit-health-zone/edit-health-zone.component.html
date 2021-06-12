@@ -1,0 +1,49 @@
+<app-menu></app-menu>
+<div class="container">
+  <p>{{title}}</p>
+    <div class="form">
+        <form [formGroup]="form" (ngSubmit)="submit()">
+            <div class="user-form" fxLayout="column" >
+                <mat-form-field fxFlex="45">
+                  <input matInput
+                         type="text"
+                         placeholder="Zona básica de salud"
+                         name="zona_basica_salud"
+                         formControlName="zona_basica_salud"
+                         [(ngModel)]="healthZone.zona_basica_salud"
+                         >
+                </mat-form-field>
+                <mat-form-field fxFlex="45">
+                  <input matInput
+                         type="date"
+                         placeholder="Fecha del informe"
+                         name="fecha_informe"
+                         formControlName="fecha_informe"
+                         [(ngModel)]="healthZone.fecha_informe"
+                         >
+                </mat-form-field>
+                <mat-form-field fxFlex="45">
+                    <input matInput
+                           type="text"
+                           placeholder="Casos confirmados totales"
+                           name="casos_confirmados_totales"
+                           formControlName="casos_confirmados_totales"
+                           [(ngModel)]="healthZone.casos_confirmados_totales"
+                           >
+                  </mat-form-field>
+                  <mat-form-field fxFlex="45">
+                    <input matInput
+                           type="text"
+                           placeholder="Tasa de incidencia acumulada total"
+                           name="tasa_indicendia_acumulada_total"
+                           formControlName="tasa_indicendia_acumulada_total"
+                           [(ngModel)]="healthZone.tasa_indicendia_acumulada_total"
+                           >
+                  </mat-form-field>                     
+            </div>
+            <div class="submit-btn-container" fxLayoutAlign="end center">
+              <button mat-raised-button color="primary" class="btn-block">Editar</button>
+            </div>
+          </form>
+    </div>    
+</div>
