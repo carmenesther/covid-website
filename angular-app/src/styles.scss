@@ -21,7 +21,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .mat-elevation-z8 {
-    box-shadow: 0px 5px 5px -3px rgb(123 31 162 / 20%), 0px 8px 10px 1px rgb(123 31 162 / 14%), 0px 3px 14px 2px rgb(123 31 162 / 12%);
+    box-shadow: 0px 5px 5px -3px rgb(76 175 80 / 20%), 0px 8px 10px 1px rgb(76 175 80 / 14%), 0px 3px 14px 2px rgb(76 175 80 / 12%);
 }
 
 .mat-card-content {
@@ -30,4 +30,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .spinner {
     margin-top: 20px;
+}
+
+a {
+    color: #4caf50;
 }

@@ -1,3 +1,4 @@
+import { DeathsByIdComponent } from './components/deaths/deaths-by-id/deaths-by-id.component';
 import { DeathsBySexComponent } from './components/deaths/deaths-by-sex/deaths-by-sex.component';
 import { DeathsComponent } from './components/deaths/deaths.component';
 import { HealthZonesComponent } from './components/health-zones/health-zones.component';
@@ -14,6 +15,10 @@ const routes: Routes = [
   {
     path: 'deaths',
     component: DeathsComponent
+  },
+  {
+    path: 'deaths/:id',
+    component: DeathsByIdComponent
   },
   {
     path: 'deaths/:sex',

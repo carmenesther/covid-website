@@ -20,12 +20,12 @@ export class DbService {
     return this.http.get(`${this.apiUrl}/api/deaths/${id}`);
   }
 
-  getDeathsByGenre(genre: string) {
-    return this.http.get(`${this.apiUrl}/api/deaths-genre/${genre}`);
+  getDeathsByGender(gender: string) {
+    return this.http.get(`${this.apiUrl}/api/deaths-gender/${gender}`);
   }
 
-  getCountGenre() {
-    return this.http.get(`${this.apiUrl}/api/deaths-count-genre`);
+  getCountGender() {
+    return this.http.get(`${this.apiUrl}/api/deaths-count-gender`);
   }
 
   getAllHealthZones() {

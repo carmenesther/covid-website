@@ -7,16 +7,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 
+import { FontAwesomeModule, FaIconComponent } from '@fortawesome/angular-fontawesome';
+import { ChartsModule } from 'ng2-charts';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './shared/components/menu/menu.component';
 import { HealthZonesComponent } from './components/health-zones/health-zones.component';
 import { DeathsComponent } from './components/deaths/deaths.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { VaccinationComponent } from './components/vaccination/vaccination.component';
-
-import { FontAwesomeModule, FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { DeathsBySexComponent } from './components/deaths/deaths-by-sex/deaths-by-sex.component';
+import { DeathsByIdComponent } from './components/deaths/deaths-by-id/deaths-by-id.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +29,8 @@ import { DeathsBySexComponent } from './components/deaths/deaths-by-sex/deaths-b
     HealthZonesComponent,
     DeathsComponent,
     VaccinationComponent,
-    DeathsBySexComponent
+    DeathsBySexComponent,
+    DeathsByIdComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,8 @@ import { DeathsBySexComponent } from './components/deaths/deaths-by-sex/deaths-b
     FontAwesomeModule,
     FormsModule,
     ReactiveFormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    ChartsModule
     ],
   providers: [],
   bootstrap: [AppComponent],
