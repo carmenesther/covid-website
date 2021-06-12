@@ -309,6 +309,47 @@ router.get('/health-zones/:id', ctrlHealthZones.healthZoneReadOne);
 
 /**
  * @swagger
+ * /api/health-zones/{id}:
+ *   patch:
+ *     summary: Applies some changes to a health zone
+ *     description: Applies some changes to the health zone
+ *     tags:
+ *       - health-zones
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: Numeric ID of the health zone to patch.
+ *         schema:
+ *           type: integer
+ *       - name: health-zone
+ *         in: body
+ *         required: true
+ *         description: The health-zone. The entire object is not required.
+ *         schema:
+ *           $ref: '#/components/schemas/health-zones'
+ *     responses:
+ *       200:
+ *         description: The health zone patched.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/health-zones'
+ *       404:
+ *         description: Message of error.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/resource-not-found'
+*/
+router.patch('/health-zones/:id', ctrlHealthZones.healthZonePatch);
+
+/**
+ * @swagger
  * /api/vaccination:
  *   get:
  *     summary: Retrieves a list of people vaccinated
