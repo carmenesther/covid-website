@@ -35,7 +35,26 @@ const healthZoneReadOne = (req, res) => {
     });
 };
 
+/* PATCH api/health-zones/:id */
+const healthZonePatch = (req, res) => {
+    hz.
+    findByIdAndUpdate(
+        { _id: req.params.id },
+        { $set: req.body },
+        {new: true})
+        .exec((err, healthZone) => {
+            if(!healthZone){
+                sendJSONresponse(res, 404, {"message": "health zone not found"});
+            } else if(err) {
+                sendJSONresponse(res, 404, err);
+            } else {
+                sendJSONresponse(res, 200, healthZone);
+            }
+        },);
+};
+
 module.exports = {
     healthZonesReadAll,
-    healthZoneReadOne
+    healthZoneReadOne,
+    healthZonePatch
 }
