@@ -20,7 +20,7 @@ export class EditVaccinationComponent implements OnInit {
   constructor(private db: DbService, private fb: FormBuilder, private route: ActivatedRoute, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
-    this.vaccination = this.route.snapshot.paramMap.get('id');
+    this.vaccinationID = this.route.snapshot.paramMap.get('id');
     this.getVaccination();
     this.createForm();
   }
@@ -43,9 +43,8 @@ export class EditVaccinationComponent implements OnInit {
   }
 
   submit(){
-    console.log(this.vaccination);
     if (this.form.invalid) { return; }
-    this.db.updateVaccination(this.vaccination, this.vaccination).subscribe(data => {
+    this.db.updateVaccination(this.vaccinationID, this.vaccination).subscribe(data => {
       this._snackBar.open('Modificado correctamente', "", {
         duration: 5000,
         horizontalPosition: "end",

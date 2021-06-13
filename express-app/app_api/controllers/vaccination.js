@@ -75,14 +75,15 @@ const vaccinationDelete = (req, res) => {
 
 /* PUT api/vaccination/:id */
 const vaccinationPut = (req, res) => {
-    hz.
+    const _id = req.params.id;
+    v.
     findByIdAndUpdate(
-        { _id: req.params.id },
-        { comunidad_autonoma: req.body.comunidad_autonoma },
-        { porcentaje_primera_dosis: req.body.porcentaje_primera_dosis },
-        { porcentaje_segunda_dosis: req.body.porcentaje_segunda_dosis },
-        { porcentaje_total: req.body.porcentaje_total },
-        { fecha: req.body.fecha },
+          _id, 
+          {comunidad_autonoma: req.body.comunidad_autonoma,
+          porcentaje_primera_dosis: req.body.porcentaje_primera_dosis,
+          porcentaje_segunda_dosis: req.body.porcentaje_segunda_dosis,
+          porcentaje_total: req.body.porcentaje_total,
+          fecha: req.body.fecha },
         {new: true})
         .exec((err, vaccination) => {
             if(!vaccination){
