@@ -7,6 +7,7 @@ import {NgModule} from '@angular/core';
 import { HomeComponent } from './components/home/home.component';
 import { VaccinationComponent } from './components/vaccination/vaccination.component';
 import { DeathsByGenderComponent } from './components/deaths/deaths-by-gender/deaths-by-gender.component';
+import { EditVaccinationComponent } from './components/vaccination/edit-vaccination/edit-vaccination.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'vaccination',
     component: VaccinationComponent
+  },
+  {
+    path: 'vaccination/:id',
+    component: EditVaccinationComponent
   },
   {
     path: '**',

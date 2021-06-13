@@ -45,6 +45,14 @@ export class DbService {
     return this.http.get(`${this.apiUrl}/api/vaccination`);
   }
 
+  getVaccination(id) {
+    return this.http.get(`${this.apiUrl}/api/vaccination/${id}`);
+  }
+
+  updateVaccination(id, vaccination: VaccinationModel) {
+    return this.http.put(`${this.apiUrl}/api/vaccination/${id}`, vaccination);
+  }
+
   addVaccination(vaccination: VaccinationModel) {
     return this.http.post(`${this.apiUrl}/api/vaccination/`, vaccination);
   }

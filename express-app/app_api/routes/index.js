@@ -109,7 +109,7 @@ router.get('/', function (req, res, next) {
  *         fecha:
  *           type: string
  *           description: date.
- *           example: mayo 2021
+ *           example: 07/01/2020
  *     resource-not-found:
  *       type: object
  *       properties:
@@ -378,6 +378,41 @@ router.get('/vaccination', ctrlVaccination.vaccinationReadAll);
 
 /**
  * @swagger
+ * /api/vaccination/{id}:
+ *   get:
+ *     summary: Retrieves a vaccination
+ *     description: Retrieves a vaccination with the information
+ *     tags:
+ *       - vaccination
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: Numeric ID of the vaccination to retrieve.
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       200:
+ *         description: One vaccination.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/vaccination'
+ *       404:
+ *         description: Message of error.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/resource-not-found'
+*/
+router.get('/vaccination/:id', ctrlVaccination.vaccinationReadOne);
+
+/**
+ * @swagger
  * /api/vaccination:
  *   post:
  *     tags:
@@ -434,5 +469,46 @@ router.post('/vaccination', ctrlVaccination.vaccinationCreate);
  *                 $ref: '#/components/schemas/resource-not-found'
 */
 router.delete('/vaccination/:id', ctrlVaccination.vaccinationDelete);
+
+/**
+ * @swagger
+ * /api/vaccination/{id}:
+ *   put:
+ *     summary: Updates a vaccination
+ *     description: Updates a vaccination
+ *     tags:
+ *       - vaccination
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: Numeric ID of the vaccination to update.
+ *         schema:
+ *           type: integer
+ *       - name: vaccination
+ *         in: body
+ *         required: true
+ *         description: The vaccination. The entire object is required.
+ *         schema:
+ *           $ref: '#/components/schemas/vaccination'
+ *     responses:
+ *       200:
+ *         description: The vaccination updated.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/vaccination'
+ *       404:
+ *         description: Message of error.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/resource-not-found'
+*/
+router.put('/vaccination/:id', ctrlVaccination.vaccinationPut);
 
 module.exports = router;

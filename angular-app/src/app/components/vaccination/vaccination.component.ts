@@ -6,7 +6,7 @@ import { DbService } from 'src/app/services/db.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
 import {MatDialog} from '@angular/material/dialog';
 
 @Component({
@@ -21,6 +21,7 @@ export class VaccinationComponent implements OnInit {
   vaccination: any = {};
 
   faDelete = faTrash;
+  faEdit = faEdit;
 
   form: FormGroup;
 
