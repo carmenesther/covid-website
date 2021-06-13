@@ -1,4 +1,29 @@
 <app-menu></app-menu>
+<div class="spinner" fxLayoutAlign="center center">
+    <mat-spinner *ngIf="wait"></mat-spinner>
+</div>
 <div class="container">
-    <p>deaths-by-id works!</p>
+    <div>
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    {{death.covid19}}
+                </mat-card-title>
+                <div fxFlex></div>
+                <fa-icon [icon]="faBothGenders" size="lg" *ngIf="death.sexo == 'Total'"></fa-icon>
+                <fa-icon [icon]="faFemale" size="lg" *ngIf="death.sexo == 'Mujeres'"></fa-icon>
+                <fa-icon [icon]="faMale" size="lg" *ngIf="death.sexo == 'Hombres'"></fa-icon>
+                <span>
+                    <strong>Rango de edades: </strong>{{death.edad}}
+                </span>
+            </mat-card-header>
+            <mat-card-content>
+                <div>
+                    <span><strong>Mes muerte por Covid 19: </strong>{{death.mes_defuncion}}</span>
+                    <div fxFlex></div>
+                    <span><strong>Total muertes por Covid 19: </strong>{{death.total}}</span>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
 </div>
